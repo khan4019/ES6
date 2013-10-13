@@ -75,11 +75,10 @@
 					</section>
 <!-- End of Intro -->
 					<section>
+						<h2>To Do</h2>
 						<ul>
 							<li>Block Scope (let, const)</li>
 							<li>Extract Multiple Value</li>							
-							<li>Arrow Function</li>
-							<li>Parameter Default Values</li>
 							<li>Rest Parameter</li>
 							<li>__proto__</li>
 							<li>Class</li>
@@ -103,13 +102,11 @@
 						<a href="http://addyosmani.com/blog/a-few-new-things-coming-to-javascript/">Addy Osmani New things to ES 6</a>
 						<br/>
 						<a href="http://www.aaron-powell.com/posts/2013-09-06-linq-in-javascript-es6.html">Linq in ES6 Style</a>
-					</section>
-					<section>
-						<h2>More References from JS weekly</h2>
+						<br>
 						<a href="http://wingolog.org/archives/2013/10/07/es6-generators-and-iteration-in-spidermonkey">Generator</a>
 						<br/>
 						<a href="http://truffles.me.uk/playing-with-es6-generators-to-make-a-maybe-in-javascript">Another generator Browser fails</a>
-					</section>
+					</section>					
 					<section>
 						<section>
 							<h1 class="upholdHeader">Defaults</h1>
@@ -175,14 +172,21 @@ foo(3,'newBee'); //a = 3, b = 'newBee'
 					</section>
 					<section>
 						<section>
-							<h1 class="upholdHeader">rest</h1>
+							<h1 class="upholdHeader">... prefix</h1>
 						</section>
 						<section>
-							<h1 class="upholdHeader">Remaining in others</h1>
+							<h1 class="upholdHeader">rest parameters</h1>
 							<pre><code>
 function foo(a, ...b){
 	
 }
+							</code></pre>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FFunctions_and_function_scope%2Farguments">MDN: arguments</a>
+						</section>
+						<section>
+							<h2>spread</h2>
+							<pre><code>
+				
 							</code></pre>
 						</section>
 					</section>
@@ -350,6 +354,41 @@ var obj = {a:x, b:y=5} = {a:3}; //x=3, y=5
 						<section>
 							<h1 class="upholdHeader">Support</h1>
 							<a href="http://kangax.github.io/es5-compat-table/es6/">ES6 Compatibility Table</a>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h1 class="upholdHeader">Others</h1>
+						</section>
+						<section>
+							<h1 class="upholdHeader">String</h1>
+							<ul>
+								<li>startWith</li>
+								<li>endsWith</li>
+								<li>contains</li>
+								<li>toArray</li>								
+							</ul>
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:string_extras">String Extras</a>
+						</section>
+						<section>
+							<h1 class="upholdHeader">Number</h1>
+							<ul>
+								<li>isFinite</li>
+								<li>isInteger</li>
+								<li>isNaN</li>
+								<li>toInteger</li>
+							</ul>
+						</section>
+						<section>
+							<h1 class="upholdHeader">Math</h1>
+							<ul>
+								<li>log10</li>
+								<li>log2</li>
+								<li>cosh</li>
+								<li>acosh</li>								
+							</ul>
+							<br>
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:more_math_functions">More Math Function</a>
 						</section>
 					</section>
 				</div>
