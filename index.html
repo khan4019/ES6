@@ -130,7 +130,6 @@ foo(); //a = 42, b = 'bdeafult_b'
 foo(3); //a = 3, b = 'bdeafult_b'
 foo(3,'newBee'); //a = 3, b = 'newBee'
 							</code></pre>
-							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:parameter_default_values">ES6: default value </a>
 						</section>
 						<section>
 						
@@ -163,9 +162,11 @@ foo(); //a = 42, b = 'bdeafult_b'
 foo(3); //a = 3, b = 'bdeafult_b'
 foo(3,'newBee'); //a = 3, b = 'newBee'
 								</code></pre>
+								<a href="http://wiki.ecmascript.org/doku.php?id=harmony:parameter_default_values">ES6: default value </a>
 						</section>
 						<section>
 							<h1 class="upholdHeader">Object</h1>
+							<p>Deault in declaration of object</p>
 						</section>
 						<section>
 							<h1 class="upholdHeader"></h1>
@@ -177,6 +178,11 @@ foo(3,'newBee'); //a = 3, b = 'newBee'
 						</section>
 						<section>
 							<h1 class="upholdHeader">Remaining in others</h1>
+							<pre><code>
+function foo(a, ...b){
+	
+}
+							</code></pre>
 						</section>
 					</section>
 
@@ -235,16 +241,18 @@ foo(3,'newBee'); //a = 3, b = 'newBee'
 					<section>
 						<section>
 							<h1 class="upholdHeader">Destcturing</h1>
-						</section>
-						<section>
-							<h1 class="upholdHeader">Variable Decleration</h1>
-						</section>
-						<section>
-							<h1 class="upholdHeader">Assignment</h1>
-						</section>
-						<section>
-							<h1 class="upholdHeader">Parameter Definition</h1>
-						</section>
+							<pre><code>
+var obj = {first:'Java', last:'Script'};
+
+let{ fist:f, last:l } = obj;
+console.log( f +' '+ l); //Java Script
+							</code></pre>
+							<ul class="fragment">
+								<li>Variable Declaration</li>
+								<li>Assignment</li>
+								<li>Parameter Definition</li>
+							</ul>
+						</section>						
 						<section>
 							<h1 class="upholdHeader">Arrays</h1>
 							<pre><code>
@@ -255,13 +263,24 @@ let[x,y,...rest]=['a', 'b', 'c','d'];
 [x,y]=[y,x]; //swap
 							</code></pre>
 						</section>
+
 						<section>
-							<h1 class="upholdHeader"></h1>
-							<ul>
-								<li>Refutable(default)</li>
-								<li>Irrefutable</li>
-								<li>Default Value</li>
-							</ul>
+							<h2>Refutable(default)</h2>
+							<pre><code>
+//Refutable (default)
+var obj = {a:x, b:y} = {a:3}; //fails
+							</code></pre>
+							<h2 class="fragment">Irrefutable</h2>							
+							<pre class="fragment"><code>
+//Irrefutable (default)
+var obj = {a:x, ?b:y} = {a:3}; //x=3, y = undefined
+							</code></pre>
+							<h2 class="fragment">Default Value</h2>
+							<pre class="fragment"><code>
+//refutable (default)
+var obj = {a:x, b:y=5} = {a:3}; //x=3, y=5
+
+							</code></pre>
 						</section>
 					</section>
 					<section>
