@@ -82,7 +82,7 @@
 					<section>
 						<h2>To Do</h2>
 						<ul>
-							<li>Block Scope (let, const)</li>					
+							<li class="lineThrough">Block Scope (let, const)</li>					
 							<li>Rest Parameter</li>
 							<li>__proto__</li>
 							<li>Class</li>
@@ -227,14 +227,27 @@ justLooping();
 							<h1 class="upholdHeader">let is the solution</h1>
 							<pre><code>
 function justLooping() {
-//i not here
+//i not here. Reference Error
   for (let i = 0; i < 5; i++) {
      console.log('for nothing');
  } 
- //i not here
+ //i not here. Reference Error
 }
 justLooping();
 							</code></pre>
+							<pre class="fragment">
+								<core>
+function justLooping() {
+//i not here. Reference Error
+  for (let i = 0; i < 5; i++) {
+     var mySquare = i*i;
+ } 
+ //i not here. Reference Error
+ console.log(mySquare); // ReferenceError: 
+}
+justLooping();									
+								</core>
+							</pre>
 						</section>
 						<section>
 							<h1 class="upholdHeader">const</h1>
