@@ -29,9 +29,14 @@
 					height: 100%;
 				}
 				.reveal h1.upholdHeader{
-				  margin-top: -70px;
-				  margin-left: -15%;
-				  width: 130%;
+				  margin-top: -20px;
+				  margin-left: -5%;
+				  width: 110%;
+				}
+				.reveal h2.upholdHeader{
+				  margin-top: -20px;
+				  margin-left: -5%;
+				  width: 110%;
 				}
 				.mediumFont{
 					font-size: 2em;
@@ -175,9 +180,33 @@ function foo(a, ...b){
 
 					<section>
 						<section>
-							<h1 class="upholdHeader">Scope Variable</h1>
+							<h2 class="upholdHeader">Scope Variable</h2>
 							<pre><code>
-
+function justLooping() {
+  for (var i = 0; i < 5; i++) {
+     console.log('for nothing');
+ } 
+}
+justLooping();
+							</code></pre>
+							<pre class="fragment"><code>
+function justLooping() {
+  for (var i = 0; i < 5; i++) {
+     console.log('for nothing');
+ }
+ console.log(i); //i=5
+}
+justLooping();
+							</code></pre>
+							<pre class="fragment"><code>
+function justLooping() {
+  console.log(i); //i=undefined 
+  for (var i = 0; i < 5; i++) {
+     console.log('for nothing');
+ }
+ console.log(i); //i=5
+}
+justLooping();
 							</code></pre>
 						</section>
 						<section>
