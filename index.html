@@ -180,7 +180,10 @@ function foo(a, ...b){
 
 					<section>
 						<section>
-							<h2 class="upholdHeader">Scope Variable</h2>
+							<h1>Function Scrope</h1>
+						</section>
+						<section>
+							<h2 class="upholdHeader">JS Function Scope</h2>
 							<pre><code>
 function justLooping() {
   for (var i = 0; i < 5; i++) {
@@ -198,7 +201,10 @@ function justLooping() {
 }
 justLooping();
 							</code></pre>
-							<pre class="fragment"><code>
+						</section>
+						<section>
+							<h2>Hoisting is bad for encapsulation</h2>
+							<pre><code>
 function justLooping() {
   console.log(i); //i=undefined 
   for (var i = 0; i < 5; i++) {
@@ -208,16 +214,27 @@ function justLooping() {
 }
 justLooping();
 							</code></pre>
+							<pre class="fragment"><code>
+function justLooping() {
+  for (var i = 0; i < 5; i++) {
+     console.log('for nothing');
+ } 
+}
+justLooping();
+							</code></pre>							
 						</section>
 						<section>
-							<h1 class="upholdHeader">Block Scope</h1>
+							<h1 class="upholdHeader">let is the solution</h1>
 							<pre><code>
-//add code to explain current porblem
+function justLooping() {
+//i not here
+  for (let i = 0; i < 5; i++) {
+     console.log('for nothing');
+ } 
+ //i not here
+}
+justLooping();
 							</code></pre>
-						</section>
-						<section>
-							<h1 class="upholdHeader">Hoisting</h1>
-							pre>code
 						</section>
 						<section>
 							<h1 class="upholdHeader">const</h1>
