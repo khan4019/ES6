@@ -418,8 +418,21 @@ foo(0, { opt1: 'a', opt2: 'b' });
 					</section>
 					<section>
 						<section>
-							<h1 class="upholdHeader">Array Comprehension</h1>
-							<p>Candidate to be removed</p>
+							<h2 class="upholdHeader">Array Comprehension</h2>
+							<p>Shamelessly Copied from net tuts</p>
+							<pre><code>
+// Array created with 1 loop
+var temperature = [0, 37, 100];
+[t + 273 for (t of temperature)]; // [273, 310, 373]
+ 
+// Array created with 3 loops
+var suspects = ["Miss Scarlet", "Colonel Mustard"],
+  weapons = ["Candlestick", "Dagger"],
+  rooms = ["Kitchen", "Ballroom"];
+ 
+[(console.log(s + " with a " + w + " in the " + r)) for (s of suspects) for (w of weapons) for (r of rooms)];								
+							</code></pre>
+
 							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:array_comprehensions">Comprehension</a>
 						</section>
 					</section>
