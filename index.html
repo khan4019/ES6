@@ -86,6 +86,7 @@
 							<li>__proto__</li>
 							<li>Static and private</li>
 							<li>Module</li>
+							<li>Symbol</li>
 							<li>Template</li>
 							<li>Collections (Maps, Sets)</li>
 							<li>Iterator, yield</li>
@@ -152,8 +153,12 @@ foo(3,'newBee'); //a = 3, b = 'newBee'
 							<p>Deault in declaration of object</p>
 						</section>
 						<section>
-							<h2 class="upholdHeader">property shorthand</h2>
-							<h4>{x,y} is the same as {x:x, y:y}</h4>
+							<h2 class="upholdHeader">property shorthand</h2>							
+							<pre><code>
+var myShortObj = {x, y};
+console.log(myShortObj);
+// myShortObj ={x:x, y:y};
+							</code></pre>
 						</section>
 					</section>
 					<section>
@@ -163,17 +168,26 @@ foo(3,'newBee'); //a = 3, b = 'newBee'
 						<section>
 							<h1 class="upholdHeader">rest parameters</h1>
 							<pre><code>
-function foo(a, ...b){
-	
+function foo(a, b, c, ...others){
+	return others;
 }
+
+foo(1,2,3,4,5,6);//[4,5,6];
+
+foo(1,2,3);//[];
+foo();//[];
 							</code></pre>
 							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FFunctions_and_function_scope%2Farguments">MDN: arguments</a>
 						</section>
 						<section>
 							<h2>spread</h2>
 							<pre><code>
-				
+let a = [0, 1, 2];
+let [x, ...xs] = a;
+// x = 0
+// xs = [1, 2]				
 							</code></pre>
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:spread">Spec: Spread</a>
 						</section>
 					</section>
 
