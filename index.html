@@ -154,6 +154,7 @@ console.log(myShortObj);
 						</section>
 						<section>
 							<h1 class="upholdHeader">__proto__</h1>
+							<p>Learn it. Candidate for removal</p>
 						</section>
 					</section>
 					<section>
@@ -397,8 +398,22 @@ class Friend{
 					</section>
 					<section>
 						<section>
+							<h1 class="upholdHeader">Named Parameter</h1>
+							<pre><code>
+
+function foo(arg0, { opt1, opt2 }) {
+	return [opt1, opt2];
+}
+
+
+foo(0, { opt1: 'a', opt2: 'b' });
+//['a', 'b']
+								
+							</code></pre>
+						</section>
+						<section>
 							<h1 class="upholdHeader">Iterator</h1>
-							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:iterators">Harmony:L Iterator</a>
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:iterators">Harmony:Iterator</a>
 						</section>
 					</section>
 					<section>
