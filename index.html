@@ -29,9 +29,14 @@
 					height: 100%;
 				}
 				.reveal h1.upholdHeader{
-				  margin-top: -70px;
-				  margin-left: -15%;
-				  width: 130%;
+				  margin-top: -20px;
+				  margin-left: -5%;
+				  width: 110%;
+				}
+				.reveal h2.upholdHeader{
+				  margin-top: -20px;
+				  margin-left: -5%;
+				  width: 110%;
 				}
 				.mediumFont{
 					font-size: 2em;
@@ -75,18 +80,7 @@
 					</section>
 <!-- End of Intro -->
 					<section>
-						<h2>To Do</h2>
-						<ul>
-							<li>Block Scope (let, const)</li>					
-							<li>Rest Parameter</li>
-							<li>__proto__</li>
-							<li>Class</li>
-							<li>Static</li>
-							<li>Module</li>
-							<li>Template</li>
-							<li>Collections (Maps, Sets)</li>
-							<li>Iterator, yield</li>
-						</ul>
+						<h2>When is coming?</h2>						
 					</section>
 								
 					<section>
@@ -144,12 +138,22 @@ foo(3,'newBee'); //a = 3, b = 'newBee'
 								<a href="http://wiki.ecmascript.org/doku.php?id=harmony:parameter_default_values">ES6: default value </a>
 								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/default_parameters">Firefox: default Parameters</a>
 						</section>
+					</section>
+					<section>
 						<section>
 							<h1 class="upholdHeader">Object</h1>
 							<p>Deault in declaration of object</p>
 						</section>
 						<section>
-							<h1 class="upholdHeader"></h1>
+							<h2 class="upholdHeader">property shorthand</h2>							
+							<pre><code>
+var myShortObj = {x, y};
+console.log(myShortObj);
+// myShortObj ={x:x, y:y};
+							</code></pre>
+						</section>
+						<section>
+							<h1 class="upholdHeader">__proto__</h1>
 						</section>
 					</section>
 					<section>
@@ -159,35 +163,115 @@ foo(3,'newBee'); //a = 3, b = 'newBee'
 						<section>
 							<h1 class="upholdHeader">rest parameters</h1>
 							<pre><code>
-function foo(a, ...b){
-	
+function foo(a, b, c, ...others){
+	return others;
 }
+
+foo(1,2,3,4,5,6);//[4,5,6];
+
+foo(1,2,3);//[];
+foo();//[];
 							</code></pre>
 							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FFunctions_and_function_scope%2Farguments">MDN: arguments</a>
 						</section>
 						<section>
 							<h2>spread</h2>
 							<pre><code>
-				
+let a = [0, 1, 2];
+let [x, ...xs] = a;
+// x = 0
+// xs = [1, 2]				
+[y, ...ys = [0]; // y = 0, ys = []
+[z, ...zs] = []; // z = undefined, zs = []
 							</code></pre>
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:spread">Spec: Spread</a>
 						</section>
 					</section>
 
 					<section>
 						<section>
-							<h1 class="upholdHeader">Scope Variable</h1>
+							<h1>Function Scrope</h1>
 						</section>
 						<section>
-							<h1 class="upholdHeader">Block Scope</h1>
+							<h2 class="upholdHeader">JS Function Scope</h2>
 							<pre><code>
-//add code to explain current porblem
+function justLooping() {
+  for (var i = 0; i < 5; i++) {
+     console.log('for nothing');
+ } 
+}
+justLooping();
+							</code></pre>
+							<pre class="fragment"><code>
+function justLooping() {
+  for (var i = 0; i < 5; i++) {
+     console.log('for nothing');
+ }
+ console.log(i); //i=5
+}
+justLooping();
 							</code></pre>
 						</section>
 						<section>
-							<h1 class="upholdHeader">let</h1>
+							<h2>Hoisting is bad for encapsulation</h2>
+							<pre><code>
+function justLooping() {
+  console.log(i); //i=undefined 
+  for (var i = 0; i < 5; i++) {
+     console.log('for nothing');
+ }
+ console.log(i); //i=5
+}
+justLooping();
+							</code></pre>
+							<pre class="fragment"><code>
+function justLooping() {
+  for (var i = 0; i < 5; i++) {
+     console.log('for nothing');
+ } 
+}
+justLooping();
+							</code></pre>							
+						</section>
+						<section>
+							<h1 class="upholdHeader">let is the solution</h1>
+							<pre><code>
+function justLooping() {
+//i not here. Reference Error
+  for (let i = 0; i < 5; i++) {
+     console.log('for nothing');
+ } 
+ //i not here. Reference Error
+}
+justLooping();
+							</code></pre>
+							<pre class="fragment">
+								<core>
+function justLooping() {
+//i not here. Reference Error
+  for (let i = 0; i < 5; i++) {
+     var mySquare = i*i;
+ } 
+ //i not here. Reference Error
+ console.log(mySquare); // ReferenceError: 
+}
+justLooping();									
+								</core>
+							</pre>
 						</section>
 						<section>
 							<h1 class="upholdHeader">const</h1>
+							<h2 class="fragment">Initialized once, can never be modified</h2>
+							<ul>
+								<li>scope of constant: is it global</li>
+								<li>Can function be const?</li>
+								<li>Can object be const?</li>
+								<li>any other issues</li>
+							</ul>
+						</section>
+						<section>
+							<h1>defs.js</h1>
+							<a href="https://github.com/olov/defs">defs.js</a>
 						</section>
 					</section>
 					<section>
@@ -270,21 +354,65 @@ const obj = {
 					<section>
 						<section>
 							<h1 class="upholdHeader">Class</h1>
+							<pre><code>
+function Friend(name, city){
+	this.name = name;
+	this.city = city;
+}
+Friend.prototype.toString = function(){
+	return '('+this.name+':'+this.city+')';
+}	
+							</code></pre>
+						</section>
+						<section>
+							<pre><code>
+class Friend{
+	constructor(name, city){
+		this.name = name;
+		this.city = city;
+	}
+	toString(){
+		return '('+this.name+':'+this.city+')';
+	}
+}
+							</code></pre>
+						</section>
+						<section>
+							<h2>sub-type</h2>
+							<pre><code>
+//slide 31					
+							</code></pre>
+							<a href="http://dl.2ality.com/2013/05/fluent_es6.pdf">Axel R.: Fluent slides</a>
+						</section>
+						<section>
+							<h2>static</h2>
+							<pre><code>
+//slide 32								
+							</code></pre>
+						</section>
+						<section>
+							<h2>private properties</h2>
+							<pre><code>
+//slide 33								
+							</code></pre>
 						</section>
 					</section>
 					<section>
 						<section>
 							<h1 class="upholdHeader">Iterator</h1>
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:iterators">Harmony:L Iterator</a>
 						</section>
 					</section>
 					<section>
 						<section>
 							<h1 class="upholdHeader">Array Comprehension</h1>
+							<p>Candidate to be removed</p>
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:array_comprehensions">Comprehension</a>
 						</section>
 					</section>
 					<section>
 						<section>
-							<h1 class="upholdHeader">Destcturing</h1>
+							<h1 class="upholdHeader">Destrcturing</h1>
 							<pre><code>
 var obj = {first:'Java', last:'Script'};
 
@@ -330,6 +458,26 @@ var obj = {a:x, b:y=5} = {a:3}; //x=3, y=5
 					<section>
 						<section>
 							<h1 class="upholdHeader">Module</h1>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h1 class="upholdHeader">Template</h1>
+							<pre><code></code></pre>
+						</section>
+						<section>
+							<h1 class="upholdHeader"></h1>
+							<pre><code></code>Symbol</pre>
+						</section>
+						<section>
+							<h1 class="upholdHeader">Maps</h1>
+							<pre><code></code></pre>
+						</section>
+						<section>
+							<h1 class="upholHeader">Sets</h1>
+						</section>
+						<section>
+							<h1 class="upholdHeader">yield</h1>
 						</section>
 					</section>
 					<section>
