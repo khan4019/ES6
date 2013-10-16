@@ -344,6 +344,34 @@ const obj = {
 					<section>
 						<section>
 							<h1 class="upholdHeader">Class</h1>
+							<pre><code>
+function Friend(name, city){
+	this.name = name;
+	this.city = city;
+}
+Friend.prototype.toString = function(){
+	return '('+this.name+':'+this.city+')';
+}	
+							</code></pre>
+						</section>
+						<section>
+							<pre><code>
+class Friend{
+	constructor(name, city){
+		this.name = name;
+		this.city = city;
+	}
+	toString(){
+		return '('+this.name+':'+this.city+')';
+	}
+}
+							</code></pre>
+						</section>
+						<section>
+							<h2>sub-type</h2>
+							<pre><code>
+					
+							</code></pre>
 						</section>
 					</section>
 					<section>
@@ -358,7 +386,7 @@ const obj = {
 					</section>
 					<section>
 						<section>
-							<h1 class="upholdHeader">Destcturing</h1>
+							<h1 class="upholdHeader">Destrcturing</h1>
 							<pre><code>
 var obj = {first:'Java', last:'Script'};
 
