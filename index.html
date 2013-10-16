@@ -154,6 +154,7 @@ console.log(myShortObj);
 						</section>
 						<section>
 							<h1 class="upholdHeader">__proto__</h1>
+							<p>Learn it. Candidate for removal</p>
 						</section>
 					</section>
 					<section>
@@ -397,14 +398,41 @@ class Friend{
 					</section>
 					<section>
 						<section>
+							<h1 class="upholdHeader">Named Parameter</h1>
+							<pre><code>
+
+function foo(arg0, { opt1, opt2 }) {
+	return [opt1, opt2];
+}
+
+
+foo(0, { opt1: 'a', opt2: 'b' });
+//['a', 'b']
+								
+							</code></pre>
+						</section>
+						<section>
 							<h1 class="upholdHeader">Iterator</h1>
-							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:iterators">Harmony:L Iterator</a>
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:iterators">Harmony:Iterator</a>
 						</section>
 					</section>
 					<section>
 						<section>
-							<h1 class="upholdHeader">Array Comprehension</h1>
-							<p>Candidate to be removed</p>
+							<h2 class="upholdHeader">Array Comprehension</h2>
+							<p>Shamelessly Copied from net tuts</p>
+							<pre><code>
+// Array created with 1 loop
+var temperature = [0, 37, 100];
+[t + 273 for (t of temperature)]; // [273, 310, 373]
+ 
+// Array created with 3 loops
+var suspects = ["Miss Scarlet", "Colonel Mustard"],
+  weapons = ["Candlestick", "Dagger"],
+  rooms = ["Kitchen", "Ballroom"];
+ 
+[(console.log(s + " with a " + w + " in the " + r)) for (s of suspects) for (w of weapons) for (r of rooms)];								
+							</code></pre>
+
 							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:array_comprehensions">Comprehension</a>
 						</section>
 					</section>
@@ -417,7 +445,7 @@ var obj = {first:'Java', last:'Script'};
 let{ fist:f, last:l } = obj;
 console.log( f +' '+ l); //Java Script
 							</code></pre>
-							<ul class="fragment">
+							<ul class="">
 								<li>Variable Declaration</li>
 								<li>Assignment</li>
 								<li>Parameter Definition</li>
@@ -470,12 +498,14 @@ var obj = {a:x, b:y=5} = {a:3}; //x=3, y=5
 						<section>
 							<h1 class="upholdHeader">Maps</h1>
 							<pre><code></code></pre>
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:simple_maps_and_sets">Map and Set</a>
 						</section>
 						<section>
 							<h1 class="upholHeader">Sets</h1>
 						</section>
 						<section>
 							<h1 class="upholdHeader">yield</h1>
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:generators">haromony: yield</a>
 						</section>
 					</section>					
 					<section>
