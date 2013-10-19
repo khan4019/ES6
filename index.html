@@ -81,6 +81,7 @@
 <!-- End of Intro -->
 					<section>
 						<h2>When is coming?</h2>						
+						<a href="http://wiki.ecmascript.org/doku.php?id=harmony:specification_drafts">ES6: draft</a>
 					</section>
 								
 					<section>
@@ -155,9 +156,9 @@ console.log(myShortObj);
 						</section>
 						<section>
 							<h1 class="upholdHeader">__proto__</h1>
-							<h2>Most likely depricated</h2>
+							<h4>Most likely depricated</h4>
 							<p>Candidate for removal</p>
-							<h2>Alternatively: think of </h2>
+
 							<pre><code>
 Object.setPrototypeOf(object, prototype)
 //or learn about polyfill
@@ -374,17 +375,20 @@ Friend.prototype.toString = function(){
 	return '('+this.name+':'+this.city+')';
 }	
 							</code></pre>
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:classes">spec: Class</a>
+							<br/>
+							<a href="http://h3manth.com/content/classes-javascript-es6">Classes in ES6</a>
 						</section>
 						<section>
 							<pre><code>
 class Friend{
-	constructor(name, city){
-		this.name = name;
-		this.city = city;
-	}
-	toString(){
-		return '('+this.name+':'+this.city+')';
-	}
+  constructor(name, city){
+	this.name = name;
+      this.city = city;
+  }
+  toString(){
+	return '('+this.name+':'+this.city+')';
+  }
 }
 							</code></pre>
 						</section>
