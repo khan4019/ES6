@@ -435,7 +435,8 @@ var bss = Friend.stupidFriend();
 						<section>
 							<h2>private properties</h2>
 							<pre><code>
-//slide 33								
+//slide 33							
+//google it and find more about it	
 							</code></pre>
 						</section>
 					</section>
@@ -540,7 +541,18 @@ var obj = {a:x, b:y=5} = {a:3}; //x=3, y=5
 						</section>
 						<section>
 							<h1 class="upholdHeader">Maps</h1>
-							<pre><code></code></pre>
+							<p class="fragment">Data structure mapping from arbitrary values to arbitrary values
+(objects: keys must be strings).</p>
+							<pre><code>
+let map = new Map();
+let obj = {};
+map.set(obj, 123);
+console.log(map.get(obj)); // 123
+console.log(map.has(obj)); // true
+map.delete(obj);
+console.log(map.has(obj)); // false
+							</code></pre>
+							<p class="fragment">Also: iteration (over keys, values, entries) and more.</p>
 							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:simple_maps_and_sets">Map and Set</a>
 						</section>
 						<section>
