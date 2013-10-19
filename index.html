@@ -155,7 +155,18 @@ console.log(myShortObj);
 						</section>
 						<section>
 							<h1 class="upholdHeader">__proto__</h1>
-							<p>Learn it. Candidate for removal</p>
+							<h2>Most likely depricated</h2>
+							<p>Candidate for removal</p>
+							<h2>Alternatively: think of </h2>
+							<pre><code>
+Object.setPrototypeOf(object, prototype)
+//or learn about polyfill
+Object.setPrototypeOf = Object.setPrototypeOf || function (obj, proto) {
+  obj.__proto__ = proto;
+  return obj; 
+}
+
+							</code></pre>
 						</section>
 					</section>
 					<section>
