@@ -416,9 +416,20 @@ class DevFriend extends Friend {
 						</section>
 						
 						<section>
-							<h2>static</h2>
+							<h2>ES6: static</h2>
 							<pre><code>
-//slide 32								
+class Friend {
+  static stupidFriend() {
+	return new Friend('Stupid', 'Chicago');
+  }
+  constructor(name, city) {
+	this.name = name;
+	this.city = city;
+  }
+}
+
+var bss = Friend.stupidFriend();
+
 							</code></pre>
 						</section>
 						<section>
