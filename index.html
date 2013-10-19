@@ -397,6 +397,25 @@ DevFriend.prototype.toString = function(){
 							<a href="http://dl.2ality.com/2013/05/fluent_es6.pdf">Axel R.: Fluent slides</a>
 						</section>
 						<section>
+							<h2>ES6: sub-type</h2>
+							<pre><code class="largeCode">
+class DevFriend extends Friend {
+  constructor(name, city, favLang) {
+	//same super.constructor(name, city)
+	super(name, city); 
+	this.favLang = favLang;
+  }
+  
+  toString() {
+	return this.favLang+' '+super();
+  }
+}	
+
+							</code></pre>
+						
+						</section>
+						
+						<section>
 							<h2>static</h2>
 							<pre><code>
 //slide 32								
