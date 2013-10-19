@@ -123,6 +123,7 @@ foo(3,'newBee'); //a = 3, b = 'newBee'
 						
 						</section>
 						<section>
+							<h2>ES6</h2>
 							<pre><code>
  function foo(a=42, b='default_b')
  {
@@ -145,7 +146,7 @@ foo(3,'newBee'); //a = 3, b = 'newBee'
 							<p>Deault in declaration of object</p>
 						</section>
 						<section>
-							<h2 class="upholdHeader">property shorthand</h2>							
+							<h2 class="upholdHeader">Property shorthand</h2>							
 							<pre><code>
 var myShortObj = {x, y};
 console.log(myShortObj);
@@ -162,7 +163,7 @@ console.log(myShortObj);
 							<h1 class="upholdHeader">... prefix</h1>
 						</section>
 						<section>
-							<h1 class="upholdHeader">rest parameters</h1>
+							<h2 class="upholdHeader">rest parameters</h2>
 							<pre><code>
 function foo(a, b, c, ...others){
 	return others;
@@ -378,8 +379,20 @@ class Friend{
 						</section>
 						<section>
 							<h2>sub-type</h2>
-							<pre><code>
-//slide 31					
+							<pre><code class="largeCode">
+function DevFriend(name, city, favLang){
+	Friend.call(this, name, city);
+	this.favLang = favLang;	
+}
+
+DevFriend.prototype = Object.create(Friend.prototype);
+
+DevFriend.prototype.constructor = DevFriend;
+
+DevFriend.prototype.toString = function(){
+  return this.favLang + ' '+ Friend.prototype.toString.call(this);
+}	
+
 							</code></pre>
 							<a href="http://dl.2ality.com/2013/05/fluent_es6.pdf">Axel R.: Fluent slides</a>
 						</section>
@@ -505,7 +518,10 @@ var obj = {a:x, b:y=5} = {a:3}; //x=3, y=5
 						</section>
 						<section>
 							<h1 class="upholdHeader">yield</h1>
+							<h3>Summarize whatever mentioned in yield generator</h3>
 							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:generators">haromony: yield</a>
+							<br/>
+							<a href="http://dailyjs.com/2013/10/17/yield/">yield generator</a>
 						</section>
 					</section>					
 					<section>
