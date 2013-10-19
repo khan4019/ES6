@@ -81,6 +81,7 @@
 <!-- End of Intro -->
 					<section>
 						<h2>When is coming?</h2>						
+						<a href="http://wiki.ecmascript.org/doku.php?id=harmony:specification_drafts">ES6: draft</a>
 					</section>
 								
 					<section>
@@ -123,6 +124,7 @@ foo(3,'newBee'); //a = 3, b = 'newBee'
 						
 						</section>
 						<section>
+							<h2>ES6</h2>
 							<pre><code>
  function foo(a=42, b='default_b')
  {
@@ -145,7 +147,7 @@ foo(3,'newBee'); //a = 3, b = 'newBee'
 							<p>Deault in declaration of object</p>
 						</section>
 						<section>
-							<h2 class="upholdHeader">property shorthand</h2>							
+							<h2 class="upholdHeader">Property shorthand</h2>							
 							<pre><code>
 var myShortObj = {x, y};
 console.log(myShortObj);
@@ -154,7 +156,18 @@ console.log(myShortObj);
 						</section>
 						<section>
 							<h1 class="upholdHeader">__proto__</h1>
-							<p>Learn it. Candidate for removal</p>
+							<h4>Most likely depricated</h4>
+							<p>Candidate for removal</p>
+
+							<pre><code>
+Object.setPrototypeOf(object, prototype)
+//or learn about polyfill
+Object.setPrototypeOf = Object.setPrototypeOf || function (obj, proto) {
+  obj.__proto__ = proto;
+  return obj; 
+}
+
+							</code></pre>
 						</section>
 					</section>
 					<section>
@@ -162,7 +175,7 @@ console.log(myShortObj);
 							<h1 class="upholdHeader">... prefix</h1>
 						</section>
 						<section>
-							<h1 class="upholdHeader">rest parameters</h1>
+							<h2 class="upholdHeader">rest parameters</h2>
 							<pre><code>
 function foo(a, b, c, ...others){
 	return others;
@@ -362,37 +375,83 @@ Friend.prototype.toString = function(){
 	return '('+this.name+':'+this.city+')';
 }	
 							</code></pre>
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:classes">spec: Class</a>
+							<br/>
+							<a href="http://h3manth.com/content/classes-javascript-es6">Classes in ES6</a>
 						</section>
 						<section>
 							<pre><code>
 class Friend{
-	constructor(name, city){
-		this.name = name;
-		this.city = city;
-	}
-	toString(){
-		return '('+this.name+':'+this.city+')';
-	}
+  constructor(name, city){
+	this.name = name;
+      this.city = city;
+  }
+  toString(){
+	return '('+this.name+':'+this.city+')';
+  }
 }
 							</code></pre>
 						</section>
 						<section>
 							<h2>sub-type</h2>
-							<pre><code>
-//slide 31					
+							<pre><code class="largeCode">
+function DevFriend(name, city, favLang){
+	Friend.call(this, name, city);
+	this.favLang = favLang;	
+}
+
+DevFriend.prototype = Object.create(Friend.prototype);
+
+DevFriend.prototype.constructor = DevFriend;
+
+DevFriend.prototype.toString = function(){
+  return this.favLang + ' '+ Friend.prototype.toString.call(this);
+}	
+
 							</code></pre>
 							<a href="http://dl.2ality.com/2013/05/fluent_es6.pdf">Axel R.: Fluent slides</a>
 						</section>
 						<section>
-							<h2>static</h2>
+							<h2>ES6: sub-type</h2>
+							<pre><code class="largeCode">
+class DevFriend extends Friend {
+  constructor(name, city, favLang) {
+	//same super.constructor(name, city)
+	super(name, city); 
+	this.favLang = favLang;
+  }
+  
+  toString() {
+	return this.favLang+' '+super();
+  }
+}	
+
+							</code></pre>
+						
+						</section>
+						
+						<section>
+							<h2>ES6: static</h2>
 							<pre><code>
-//slide 32								
+class Friend {
+  static stupidFriend() {
+	return new Friend('Stupid', 'Chicago');
+  }
+  constructor(name, city) {
+	this.name = name;
+	this.city = city;
+  }
+}
+
+var bss = Friend.stupidFriend();
+
 							</code></pre>
 						</section>
 						<section>
 							<h2>private properties</h2>
 							<pre><code>
-//slide 33								
+//slide 33							
+//google it and find more about it	
 							</code></pre>
 						</section>
 					</section>
@@ -497,15 +556,38 @@ var obj = {a:x, b:y=5} = {a:3}; //x=3, y=5
 						</section>
 						<section>
 							<h1 class="upholdHeader">Maps</h1>
-							<pre><code></code></pre>
+							<p class="fragment">Data structure mapping from arbitrary values to arbitrary values
+(objects: keys must be strings).</p>
+							<pre><code>
+let map = new Map();
+let obj = {};
+map.set(obj, 123);
+console.log(map.get(obj)); // 123
+console.log(map.has(obj)); // true
+map.delete(obj);
+console.log(map.has(obj)); // false
+							</code></pre>
+							<p class="fragment">Also: iteration (over keys, values, entries) and more.</p>
 							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:simple_maps_and_sets">Map and Set</a>
 						</section>
 						<section>
 							<h1 class="upholHeader">Sets</h1>
+							<p>A collection of values without duplicates.</p>
+							<pre><code>
+let set1 = new Set();
+set1.add('hello');
+console.log(set1.has('hello')); // true
+console.log(set1.has('world')); // false
+let set2 = new Set([3,2,1,3,2,3]);
+console.log(set2.values()); // 1,2,3
+							</code></pre>
 						</section>
 						<section>
 							<h1 class="upholdHeader">yield</h1>
+							<h3>Summarize whatever mentioned in yield generator</h3>
 							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:generators">haromony: yield</a>
+							<br/>
+							<a href="http://dailyjs.com/2013/10/17/yield/">yield generator</a>
 						</section>
 					</section>					
 					<section>
