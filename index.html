@@ -463,11 +463,13 @@ const obj = {
 							<h1 class="upholdHeader">Class</h1>
 							<pre><code>
 function Friend(name, city){
-	this.name = name;
-	this.city = city;
+	
+  this.name = name;
+  this.city = city;
 }
+
 Friend.prototype.toString = function(){
-	return '('+this.name+':'+this.city+')';
+  return '('+this.name+':'+this.city+')';
 }	
 							</code></pre>
 							<br/>
@@ -479,15 +481,18 @@ Friend.prototype.toString = function(){
 						<section>
 							<pre><code>
 class Friend{
+
   constructor(name, city){
 	this.name = name;
       this.city = city;
   }
+
   toString(){
 	return '('+this.name+':'+this.city+')';
   }
 }
 							</code></pre>
+							<a href="http://wiki.ecmascript.org/doku.php?id=strawman:maximally_minimal_classes">Harmony: Class</a>
 						</section>
 						<section>
 							<h2>sub-type</h2>
@@ -512,6 +517,7 @@ DevFriend.prototype.toString = function(){
 							<h2>ES6: sub-type</h2>
 							<pre><code class="largeCode">
 class DevFriend extends Friend {
+  
   constructor(name, city, favLang) {
 	//same super.constructor(name, city)
 	super(name, city); 
@@ -531,27 +537,30 @@ class DevFriend extends Friend {
 							<h2>ES6: static</h2>
 							<pre><code>
 class Friend {
+  
   static stupidFriend() {
 	return new Friend('Stupid', 'Chicago');
   }
+  
   constructor(name, city) {
 	this.name = name;
 	this.city = city;
   }
+
 }
 
 var bss = Friend.stupidFriend();
 
 							</code></pre>
 						</section>
-						<section>
+<!-- 						<section>
 							<h2>private properties</h2>
 							<pre><code>
 //slide 33							
 //google it and find more about it	
 							</code></pre>
 						</section>
-					</section>
+ -->					</section>
 					<section>
 						<section>
 							<h1 class="upholdHeader">Named Parameter</h1>
