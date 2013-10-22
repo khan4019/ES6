@@ -427,6 +427,24 @@ var getTempUser = id => ({ id: id, name: "Temp" });
 							<a href="http://www.nczonline.net/blog/2013/09/10/understanding-ecmascript-6-arrow-functions/">Nicholas Zakas: ES6 Arrow Function</a>
 						</section>
 						<section>
+							<h2>What the heck is this!!</h2>
+							<pre><code>
+function MyClickHandler {
+	var that = this;
+	//var self = this;
+
+	var elem = document.getElementById('myDiv');
+	
+	elem.addEventListener('click', function () {
+		  console.log('CLICK');
+		  that.handleClick();
+	});
+}
+
+MyClickHandler.prototype.handleClick = function () { ... };
+							</code></pre>
+						</section>
+						<section>
 							<h2 class="upholdHeader">lexical this, no more that = this</h2>
 							<pre><code>
 //from Harmony: make it better
