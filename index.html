@@ -544,11 +544,7 @@ foo(0, { opt1: 'a', opt2: 'b' });
 //['a', 'b']
 								
 							</code></pre>
-						</section>
-						<section>
-							<h1 class="upholdHeader">Iterator</h1>
-							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:iterators">Harmony:Iterator</a>
-						</section>
+						</section>						
 					</section>
 					<section>
 						<section>
@@ -757,7 +753,29 @@ console.log(set2.values()); // 1,2,3
 							<br/>
 							<a href="http://dailyjs.com/2013/10/17/yield/">yield generator</a>
 						</section>
-					</section>					
+					</section>
+					<section>
+							<h3 class="upholdHeader">Iterator</h3>
+							<pre><code>
+for (word of ["one", "two", "three"]) {
+    alert(word);
+}
+ 
+var s = Set([1, 3, 4, 2, 3, 2, 17, 17, 1, 17]);
+for (var v of s) {
+    alert(v);
+}
+ 
+// Iterating over a Map produces key-value pairs: arrays of length 2.
+var m = new Map;
+m.set("one", 1);
+m.set("two", 2);
+for (var [name, value] of m) {
+    alert(name + " = " + value);
+}
+							</code></pre>
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:iterators">Harmony:Iterator</a>
+						</section>					
 					<section>
 						<section>
 							<h1 class="upholdHeader">Others</h1>
