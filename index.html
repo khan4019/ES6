@@ -787,7 +787,38 @@ console.log(set2.values()); // 1,2,3
 							<br/>
 							<a href="http://dailyjs.com/2013/10/17/yield/">yield generator</a>
 						</section>
-										<section>
+						<section>
+							<h2>for in loop</h2>
+							<pre><code>
+var planets = ["Hello", "Java", "Script", "Devs"];
+
+for (p in planets) {
+  console.log(p); // 0,1,2,3
+}
+ 
+var es6 = {
+  edition: 6,
+  committee: "TC39",
+  standard: "ECMA-262"
+};
+
+for (e in es6) {
+  console.log(e); // edition, committee, standard
+}								
+							</code></pre>
+						</section>
+						<section>
+							<h2>for of</h2>
+							<pre><code>
+var planets = ["Mercury", "Venus", "Earth", "Mars"];
+
+for (p of planets) {
+  console.log(p); // Mercury, Venus, Earth, Mars
+}
+							</code></pre>
+							<h3 class="fragment">I can do it in simple for loop</h3>
+						</section>
+						<section>
 							<h3 class="upholdHeader">Iterator</h3>
 							<pre><code>
 for (word of ["one", "two", "three"]) {
