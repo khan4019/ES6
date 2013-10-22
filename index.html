@@ -71,14 +71,25 @@
 				<!-- Any section element inside of this container is displayed as a slide -->
 				<div class="slides">
 <!-- start of intro -->
+
 					<section>
-						<h1>Whats New in ES6</h1>					
-						<br/><br/>
-						<h3> <a href="goo.gl/pnvqOl">goo.gl/pnvqOl</a> </h3>
-						<br/><br/>
-						<p>
-							<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
-						</p>
+						<section>
+							<h1>Whats New in ES6</h1>					
+							<br/><br/>
+							<h3> <a href="goo.gl/pnvqOl">goo.gl/pnvqOl</a> </h3>
+							<br/><br/>
+							<p>
+								<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
+							</p>
+						</section>
+						<section>
+							<h3>Quiz</h3>
+							<h3 class="fragment">How to comfort a JavaScript bug?</h3>
+							<h2 class="fragment" style="color:purple">console it</h2>
+							<h4 class="fragment">Why do C# and Java developers keep breaking their keyboards?</h4>
+							<h3 class="fragment" style="color:purple">They are strongly typed</h3>
+							<a href="http://www.elijahmanor.com/2013/10/front-end-web-dev-jokes.html">Elijah Manor</a>
+						</section>
 					</section>
 					<section>
 						<section>
@@ -124,14 +135,14 @@
 <!-- End of Intro -->
 					<section>
 						<section>
-							<h1>It is coming?</h1>
+							<h1>It's coming?</h1>
 							<h3>Things can and might change</h3>	
 							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:specification_drafts">ES6: draft</a>
 						</section>	
 						<section>
 							<h2>JavaScript: Language</h2>
 							<h2>ECMAScript: Standard</h2>
-							<h3>Harmony: ES6</h3>
+							
 						</section>
 						<section>
 							<h1>Goals</h1>
@@ -213,11 +224,9 @@ foo(3,'newBee'); //a = 3, b = 'newBee'
 						</section>
 					</section>
 					<section>
+
 						<section>
 							<h1 class="upholdHeader">Object</h1>
-							<p>Deault in declaration of object</p>
-						</section>
-						<section>
 							<h2 class="upholdHeader">Property shorthand</h2>							
 							<pre><code>
 var myShortObj = {x, y};
@@ -243,41 +252,10 @@ Object.setPrototypeOf = Object.setPrototypeOf || function (obj, proto) {
 							</code></pre>
 						</section> -->
 					</section>
-					<section>
-						<section>
-							<h1 class="upholdHeader">... prefix</h1>
-						</section>
-						<section>
-							<h2 class="upholdHeader">rest parameters</h2>
-							<pre><code>
-function foo(a, b, c, ...others){
-	return others;
-}
-
-foo(1,2,3,4,5,6);//[4,5,6];
-
-foo(1,2,3);//[];
-foo();//[];
-							</code></pre>
-							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FFunctions_and_function_scope%2Farguments">MDN: arguments</a>
-						</section>
-						<section>
-							<h2>spread</h2>
-							<pre><code>
-let a = [0, 1, 2];
-let [x, ...xs] = a;
-// x = 0
-// xs = [1, 2]				
-[y, ...ys = [0]; // y = 0, ys = []
-[z, ...zs] = []; // z = undefined, zs = []
-							</code></pre>
-							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:spread">Spec: Spread</a>
-						</section>
-					</section>
 
 					<section>
 						<section>
-							<h1>Function Scrope</h1>
+							<h1>Function Scope</h1>
 						</section>
 						<section>
 							<h2 class="upholdHeader">JS Function Scope</h2>
@@ -311,14 +289,7 @@ function justLooping() {
 }
 justLooping();
 							</code></pre>
-							<pre class="fragment"><code>
-function justLooping() {
-  for (var i = 0; i < 5; i++) {
-     console.log('for nothing');
- } 
-}
-justLooping();
-							</code></pre>							
+							
 						</section>
 						<section>
 							<h2 class="upholdHeader">let is the solution</h2>
@@ -346,19 +317,52 @@ justLooping();
 						</section>
 						<section>
 							<h1 class="upholdHeader">const</h1>
-							<h2 class="fragment">Initialized once, can never be modified</h2>
-							<ul>
+							<h2>Initialized once, can never be modified</h2>
+							<!-- <ul>
 								<li>scope of constant: is it global</li>
 								<li>Can function be const?</li>
 								<li>Can object be const?</li>
 								<li>any other issues</li>
-							</ul>
+							</ul> -->
 						</section>
 						<section>
 							<h1>defs.js</h1>
 							<a href="https://github.com/olov/defs">defs.js</a>
 						</section>
 					</section>
+										<section>
+						<section>
+							<h1 class="upholdHeader">... prefix</h1>
+						</section>
+						<section>
+							<h2 class="upholdHeader">rest parameters</h2>
+							<pre><code>
+function foo(a, b, c, ...others){
+	return others;
+}
+
+foo(1,2,3,4,5,6);//[4,5,6];
+
+foo(1,2,3);//[];
+foo();//[];
+							</code></pre>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FFunctions_and_function_scope%2Farguments">MDN: arguments</a>
+						</section>
+						<section>
+							<h2>spread</h2>
+							<pre><code>
+let a = [0, 1, 2];
+let [x, ...xs] = a;
+// x = 0
+// xs = [1, 2]				
+[y, ...ys = [0]; // y = 0, ys = []
+[z, ...zs] = []; // z = undefined, zs = []
+							</code></pre>
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:spread">Spec: Spread</a>
+						</section>
+					</section>
+	
+
 					<section>
 						<section>
 							<h1 class="upholdHeader">Arrow Function</h1>
@@ -423,6 +427,24 @@ var getTempUser = id => ({ id: id, name: "Temp" });
 							<a href="http://www.nczonline.net/blog/2013/09/10/understanding-ecmascript-6-arrow-functions/">Nicholas Zakas: ES6 Arrow Function</a>
 						</section>
 						<section>
+							<h2>What the heck is this!!</h2>
+							<pre><code>
+function MyClickHandler {
+	var that = this;
+	//var self = this;
+
+	var elem = document.getElementById('myDiv');
+	
+	elem.addEventListener('click', function () {
+		  console.log('CLICK');
+		  that.handleClick();
+	});
+}
+
+MyClickHandler.prototype.handleClick = function () { ... };
+							</code></pre>
+						</section>
+						<section>
 							<h2 class="upholdHeader">lexical this, no more that = this</h2>
 							<pre><code>
 //from Harmony: make it better
@@ -441,11 +463,13 @@ const obj = {
 							<h1 class="upholdHeader">Class</h1>
 							<pre><code>
 function Friend(name, city){
-	this.name = name;
-	this.city = city;
+	
+  this.name = name;
+  this.city = city;
 }
+
 Friend.prototype.toString = function(){
-	return '('+this.name+':'+this.city+')';
+  return '('+this.name+':'+this.city+')';
 }	
 							</code></pre>
 							<br/>
@@ -457,15 +481,18 @@ Friend.prototype.toString = function(){
 						<section>
 							<pre><code>
 class Friend{
+
   constructor(name, city){
 	this.name = name;
       this.city = city;
   }
+
   toString(){
 	return '('+this.name+':'+this.city+')';
   }
 }
 							</code></pre>
+							<a href="http://wiki.ecmascript.org/doku.php?id=strawman:maximally_minimal_classes">Harmony: Class</a>
 						</section>
 						<section>
 							<h2>sub-type</h2>
@@ -490,6 +517,7 @@ DevFriend.prototype.toString = function(){
 							<h2>ES6: sub-type</h2>
 							<pre><code class="largeCode">
 class DevFriend extends Friend {
+  
   constructor(name, city, favLang) {
 	//same super.constructor(name, city)
 	super(name, city); 
@@ -509,27 +537,30 @@ class DevFriend extends Friend {
 							<h2>ES6: static</h2>
 							<pre><code>
 class Friend {
+  
   static stupidFriend() {
 	return new Friend('Stupid', 'Chicago');
   }
+  
   constructor(name, city) {
 	this.name = name;
 	this.city = city;
   }
+
 }
 
 var bss = Friend.stupidFriend();
 
 							</code></pre>
 						</section>
-						<section>
+<!-- 						<section>
 							<h2>private properties</h2>
 							<pre><code>
 //slide 33							
 //google it and find more about it	
 							</code></pre>
 						</section>
-					</section>
+ -->					</section>
 					<section>
 						<section>
 							<h1 class="upholdHeader">Named Parameter</h1>
@@ -546,7 +577,7 @@ foo(0, { opt1: 'a', opt2: 'b' });
 							</code></pre>
 						</section>						
 					</section>
-					<section>
+					<!-- <section>
 						<section>
 							<h2 class="upholdHeader">Array Comprehension</h2>
 							<p>Shamelessly Copied from net tuts</p>
@@ -565,7 +596,7 @@ var suspects = ["Miss Scarlet", "Colonel Mustard"],
 
 							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:array_comprehensions">Comprehension</a>
 						</section>
-					</section>
+					</section> -->
 					<section>
 						<section>
 							<h1 class="upholdHeader">Destrcturing</h1>
@@ -596,19 +627,19 @@ let [ x, y, ...rest ] = ['a', 'b', 'c','d'];
 						</section>
 
 						<section>
-							<h2>Refutable(default)</h2>
+							<h3>Refutable(default)</h3>
 							<pre><code>
 //Refutable (default)
 
 var obj = {a:x, b:y} = {a:3}; //fails
 							</code></pre>
-							<h2 class="fragment">Irrefutable</h2>							
+							<h3 class="fragment">Irrefutable</h3>							
 							<pre class="fragment"><code>
 //Irrefutable (default)
 
 var obj = {a:x, ?b:y} = {a:3}; //x=3, y = undefined
 							</code></pre>
-							<h2 class="fragment">Default Value</h2>
+							<h3 class="fragment">Default Value</h3>
 							<pre class="fragment"><code>
 //refutable (default)
 
@@ -644,7 +675,7 @@ import { y } from "foo";
 							<h3></h3>
 							<pre class="fragment"><code>
 //If a module defines a default export
-//then import that default export by omitting the curly braces
+//then import default export by omitting the curly braces
 
 module "foo" {
     export default function() { console.log("hello!") }
@@ -722,19 +753,20 @@ templateHandler(['Hello ', ' ', '!'], first, last)
 						</section>
 
 						<section>
-							<h1 class="upholdHeader">Maps</h1>
-							<p class="fragment">Data structure mapping from arbitrary values to arbitrary values
-(objects: keys must be strings).</p>
+							<h1 class="upholdHeader">Maps</h1>							
 							<pre><code>
 let map = new Map();
 let obj = {};
+
 map.set(obj, 123);
+
 console.log(map.get(obj)); // 123
 console.log(map.has(obj)); // true
+
 map.delete(obj);
 console.log(map.has(obj)); // false
 							</code></pre>
-							<p class="fragment">Also: iteration (over keys, values, entries) and more.</p>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">MDN: Map</a>
 							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:simple_maps_and_sets">Map and Set</a>
 						</section>
 						<section>
@@ -750,13 +782,99 @@ console.log(set2.values()); // 1,2,3
 							</code></pre>
 						</section>
 						<section>
+							<pre><code>
+var items = new Set();
+items.add(5);
+items.add("5");
+items.add(5);     // oops, duplicate - this is ignored
+
+console.log(items.size());    // 2
+							</code></pre>
+							<a href="http://www.nczonline.net/blog/2012/09/25/ecmascript-6-collections-part-1-sets/">Nicholas: Sets</a>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h2>Generator and Iterator</h2>
+						</section>
+						<section>
 							<h1 class="upholdHeader">yield</h1>
-							<h3>Summarize whatever mentioned in yield generator</h3>
+							<br/>
 							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:generators">haromony: yield</a>
 							<br/>
+							<h3>From Python</h3>
+							<h3 class="fragment">yeild = resumable return</h3>
 							<a href="http://dailyjs.com/2013/10/17/yield/">yield generator</a>
 						</section>
-										<section>
+						<section>
+							<h2>Implement Iterator</h2>
+							<pre><code>
+function createArrayIterator(arr) {
+    let index = 0;
+    return {
+        next() {
+            if (index < arr.length) {
+                return { done: false, value: arr[index++] };
+            } else {
+                return { done: true };
+            }
+        }
+    }
+}
+							</code></pre>
+						</section>
+						<section>
+							<h2>Generator</h2>
+							<pre><code>
+function* generatorFunction() {
+    yield 1;
+    yield 2;
+}
+
+let genObj = generatorFunction();
+genObj.next()
+//{ done: false, value: 1 }
+genObj.next()
+//{ done: false, value: 2 }
+genObj.next()
+//{ done: true }
+
+							</code></pre>
+							<a href="http://www.2ality.com/2013/06/iterators-generators.html">2ality: Iterators-generators</a>
+						</section>
+
+						<section>
+							<h2>for in loop</h2>
+							<pre><code>
+var planets = ["Hello", "Java", "Script", "Devs"];
+
+for (p in planets) {
+  console.log(p); // 0,1,2,3
+}
+ 
+var es6 = {
+  edition: 6,
+  committee: "TC39",
+  standard: "ECMA-262"
+};
+
+for (e in es6) {
+  console.log(e); // edition, committee, standard
+}								
+							</code></pre>
+						</section>
+						<section>
+							<h2>for of</h2>
+							<pre><code>
+var planets = ["Mercury", "Venus", "Earth", "Mars"];
+
+for (p of planets) {
+  console.log(p); // Mercury, Venus, Earth, Mars
+}
+							</code></pre>
+							<h3 class="fragment">I can do it in simple for loop</h3>
+						</section>
+						<section>
 							<h3 class="upholdHeader">Iterator</h3>
 							<pre><code>
 for (word of ["one", "two", "three"]) {
@@ -833,6 +951,17 @@ for (var [name, value] of m) {
 							<a href="https://github.com/google/traceur-compiler">Traceur by Google</a>
 							<br/>
 							<a href="https://github.com/paulmillr/es6-shim/">es6-shim</a>
+						</section>
+					</section>
+					<section>
+						<section>
+							<img src="images/morePower.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/bikeFullLoad.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/moreSpeed.jpg" alt="">
 						</section>
 					</section>
 					<section>
