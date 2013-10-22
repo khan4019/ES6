@@ -73,9 +73,9 @@
 <!-- start of intro -->
 					<section>
 						<h1>Whats New in ES6</h1>					
-						<br/><br/><br/>
+						<br/><br/>
 						<h3> <a href="goo.gl/pnvqOl">goo.gl/pnvqOl</a> </h3>
-						<br/><br/><br/>
+						<br/><br/>
 						<p>
 							<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
 						</p>
@@ -113,17 +113,7 @@
 							<div style="background-image: url('images/stages.jpg'); width: 720px; height:800px; margin-top:-150px;">							
 							</div>
 							<p>December 2014</p>
-						</section>
-						<section>
-							<ul>
-								<li>November 2013: Final Draft</li>
-								<li>July 2014: editorially complete</li>
-								<li>December 2014: Ecma Approval</li>
-							</ul>
-							<a href="https://github.com/google/traceur-compiler">Traceur by Google</a>
-							<br/>
-							<a href="https://github.com/paulmillr/es6-shim/">es6-shim</a>
-						</section>
+						</section>						
 						<section>
 							<div style="background-image: url('images/stages.jpg'); width: 720px; height:800px; margin-top:-150px;">							
 							</div>
@@ -156,14 +146,9 @@
 						</section>
 						<section>
 							<h1>Honest Goals</h1>
-								<ul>
-									<li>Make you Lazy</li>
-									<li>Steal from other Libraries</li>
-									<li>Reduce your Salary</li>
-								</ul>	
-								
-							<br/>
-							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:harmony">Harmony: goals</a>							
+							<h3 class="fragment" style="color:brown;">Steal from Libraries</h3>
+							<h3 class="fragment" style="color:brown;">Make you Lazy</h3>
+							<h3 class="fragment" style="color:brown;">Reduce your Paycheck</h3>							
 						</section>
 					</section>					
 								
@@ -463,6 +448,8 @@ Friend.prototype.toString = function(){
 	return '('+this.name+':'+this.city+')';
 }	
 							</code></pre>
+							<br/>
+							<br/>
 							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:classes">spec: Class</a>
 							<br/>
 							<a href="http://h3manth.com/content/classes-javascript-es6">Classes in ES6</a>
@@ -557,11 +544,7 @@ foo(0, { opt1: 'a', opt2: 'b' });
 //['a', 'b']
 								
 							</code></pre>
-						</section>
-						<section>
-							<h1 class="upholdHeader">Iterator</h1>
-							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:iterators">Harmony:Iterator</a>
-						</section>
+						</section>						
 					</section>
 					<section>
 						<section>
@@ -643,8 +626,34 @@ var obj = {a:x, b:y=5} = {a:3}; //x=3, y=5
 								<li>concatenations</li>
 								<li>Automatic linting</li>
 								<li>conditional module loading</li>
-								<li>Use legacy module like AMD, Node.js</li>
 							</ul>
+							<br/>
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:modules">harmony: Module</a>
+						</section>
+						<section>
+							<h3>Declare Inline</h3>
+							<pre><code>
+module "foo" {
+    export let x = 42;
+}
+							</code></pre>
+							<h3 class="fragment">External module load</h3>
+							<pre class="fragment"><code>
+import { y } from "foo";
+							</code></pre>
+							<h3></h3>
+							<pre class="fragment"><code>
+//If a module defines a default export
+//then import that default export by omitting the curly braces
+
+module "foo" {
+    export default function() { console.log("hello!") }
+}
+
+import foo from "foo";
+foo(); // hello!
+							</code></pre>
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:modules">harmony: Module</a>
 						</section>
 					</section>
 					<section>
@@ -667,11 +676,11 @@ let blue = Symbol();
 function handleColor(color) {
 	switch(color) {
 		case red:
-		...
+			...
 		case green:
-		...
+			...
 		case blue:
-		...
+			...
 	}
 }								
 							</code></pre>
@@ -684,15 +693,15 @@ let specialMethod = Symbol();
 let obj = {
 	// computed property key
 		[specialMethod]: function (arg) {
-		...
+			...
 	}
 };
 	obj[specialMethod](123);
 	Shorter – method definition syntax:
-	let obj = {
-		[specialMethod](arg) {
-		...
-	}
+		let obj = {
+			[specialMethod](arg) {
+				...
+		}
 };								
 							</code></pre>
 							<a href="">Copied from slides of Axel Rauschmayer</a>
@@ -700,13 +709,16 @@ let obj = {
 					</section>
 					<section>
 						<section>
+							<h1>Others</h1>
+						</section>
+						<section>
 							<h1 class="upholdHeader">Template</h1>
 							<pre><code>
 templateHandler 'Hello ${first} ${last}!'
 
 templateHandler(['Hello ', ' ', '!'], first, last)
 							</code></pre>
-							<h3>Google it</h3>
+							<h3> <a href="http://wiki.ecmascript.org/doku.php?id=harmony:quasis">Harmony template</a> </h3>
 						</section>
 
 						<section>
@@ -744,10 +756,33 @@ console.log(set2.values()); // 1,2,3
 							<br/>
 							<a href="http://dailyjs.com/2013/10/17/yield/">yield generator</a>
 						</section>
-					</section>					
+										<section>
+							<h3 class="upholdHeader">Iterator</h3>
+							<pre><code>
+for (word of ["one", "two", "three"]) {
+    alert(word);
+}
+ 
+var s = Set([1, 3, 4, 2, 3, 2, 17, 17, 1, 17]);
+for (var v of s) {
+    alert(v);
+}
+ 
+// Iterating over a Map produces key-value pairs: arrays of length 2.
+var m = new Map;
+m.set("one", 1);
+m.set("two", 2);
+for (var [name, value] of m) {
+    alert(name + " = " + value);
+}
+							</code></pre>
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:iterators">Harmony:Iterator</a>
+						</section>	
+					</section>
+					
 					<section>
 						<section>
-							<h1 class="upholdHeader">Others</h1>
+							<h1 class="upholdHeader">Utilities</h1>
 						</section>
 						<section>
 							<h1 class="upholdHeader">String</h1>
@@ -757,6 +792,7 @@ console.log(set2.values()); // 1,2,3
 								<li>contains</li>
 								<li>toArray</li>								
 							</ul>
+							<br/>
 							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:string_extras">String Extras</a>
 						</section>
 						<section>
@@ -782,8 +818,21 @@ console.log(set2.values()); // 1,2,3
 					</section>
 					<section>
 						<section>
+							<h1>When?</h1>
+							<ul>
+								<li>November 2013: Final Draft</li>
+								<li>July 2014: editorially complete</li>
+								<li>December 2014: Ecma Approval</li>
+							</ul>
+							
+						</section>
+						<section>
 							<h1 class="upholdHeader">Support</h1>
 							<a href="http://kangax.github.io/es5-compat-table/es6/">ES6 Compatibility Table</a>
+							<br/>
+							<a href="https://github.com/google/traceur-compiler">Traceur by Google</a>
+							<br/>
+							<a href="https://github.com/paulmillr/es6-shim/">es6-shim</a>
 						</section>
 					</section>
 					<section>
@@ -806,9 +855,9 @@ console.log(set2.values()); // 1,2,3
 					</section>
 					<section>
 						<h1>Thank you</h1>					
-						<br/><br/><br/>
+						<br/>
 						<h3> <a href="goo.gl/pnvqOl">goo.gl/pnvqOl</a> </h3>
-						<br/><br/><br/>
+						<br/><br/>
 						<p>
 							<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
 						</p>
