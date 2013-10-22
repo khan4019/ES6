@@ -675,7 +675,7 @@ import { y } from "foo";
 							<h3></h3>
 							<pre class="fragment"><code>
 //If a module defines a default export
-//then import that default export by omitting the curly braces
+//then import default export by omitting the curly braces
 
 module "foo" {
     export default function() { console.log("hello!") }
@@ -753,9 +753,7 @@ templateHandler(['Hello ', ' ', '!'], first, last)
 						</section>
 
 						<section>
-							<h1 class="upholdHeader">Maps</h1>
-							<p class="fragment">Data structure mapping from arbitrary values to arbitrary values
-(objects: keys must be strings).</p>
+							<h1 class="upholdHeader">Maps</h1>							
 							<pre><code>
 let map = new Map();
 let obj = {};
@@ -768,7 +766,7 @@ console.log(map.has(obj)); // true
 map.delete(obj);
 console.log(map.has(obj)); // false
 							</code></pre>
-							<p class="fragment">Also: iteration (over keys, values, entries) and more.</p>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">MDN: Map</a>
 							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:simple_maps_and_sets">Map and Set</a>
 						</section>
 						<section>
@@ -782,6 +780,17 @@ console.log(set1.has('world')); // false
 let set2 = new Set([3,2,1,3,2,3]);
 console.log(set2.values()); // 1,2,3
 							</code></pre>
+						</section>
+						<section>
+							<pre><code>
+var items = new Set();
+items.add(5);
+items.add("5");
+items.add(5);     // oops, duplicate - this is ignored
+
+console.log(items.size());    // 2
+							</code></pre>
+							<a href="http://www.nczonline.net/blog/2012/09/25/ecmascript-6-collections-part-1-sets/">Nicholas: Sets</a>
 						</section>
 					</section>
 					<section>
@@ -942,6 +951,17 @@ for (var [name, value] of m) {
 							<a href="https://github.com/google/traceur-compiler">Traceur by Google</a>
 							<br/>
 							<a href="https://github.com/paulmillr/es6-shim/">es6-shim</a>
+						</section>
+					</section>
+					<section>
+						<section>
+							<img src="images/morePower.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/bikeFullLoad.jpg" alt="">
+						</section>
+						<section>
+							<img src="images/moreSpeed.jpg" alt="">
 						</section>
 					</section>
 					<section>
