@@ -83,7 +83,7 @@
 							</p>
 						</section>
 						<section>
-							<h3>QA</h3>
+							<h3>Quiz</h3>
 							<h3 class="fragment">How to comfort a JavaScript bug?</h3>
 							<h2 class="fragment" style="color:purple">console it</h2>
 							<h4 class="fragment">Why do C# and Java developers keep breaking their keyboards?</h4>
@@ -627,19 +627,19 @@ let [ x, y, ...rest ] = ['a', 'b', 'c','d'];
 						</section>
 
 						<section>
-							<h2>Refutable(default)</h2>
+							<h3>Refutable(default)</h3>
 							<pre><code>
 //Refutable (default)
 
 var obj = {a:x, b:y} = {a:3}; //fails
 							</code></pre>
-							<h2 class="fragment">Irrefutable</h2>							
+							<h3 class="fragment">Irrefutable</h3>							
 							<pre class="fragment"><code>
 //Irrefutable (default)
 
 var obj = {a:x, ?b:y} = {a:3}; //x=3, y = undefined
 							</code></pre>
-							<h2 class="fragment">Default Value</h2>
+							<h3 class="fragment">Default Value</h3>
 							<pre class="fragment"><code>
 //refutable (default)
 
@@ -759,9 +759,12 @@ templateHandler(['Hello ', ' ', '!'], first, last)
 							<pre><code>
 let map = new Map();
 let obj = {};
+
 map.set(obj, 123);
+
 console.log(map.get(obj)); // 123
 console.log(map.has(obj)); // true
+
 map.delete(obj);
 console.log(map.has(obj)); // false
 							</code></pre>
@@ -780,13 +783,57 @@ let set2 = new Set([3,2,1,3,2,3]);
 console.log(set2.values()); // 1,2,3
 							</code></pre>
 						</section>
+					</section>
+					<section>
+						<section>
+							<h2>Generator and Iterator</h2>
+						</section>
 						<section>
 							<h1 class="upholdHeader">yield</h1>
-							<h3>Summarize whatever mentioned in yield generator</h3>
+							<br/>
 							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:generators">haromony: yield</a>
 							<br/>
+							<h3>From Python</h3>
+							<h3 class="fragment">yeild = resumable return</h3>
 							<a href="http://dailyjs.com/2013/10/17/yield/">yield generator</a>
 						</section>
+						<section>
+							<h2>Implement Iterator</h2>
+							<pre><code>
+function createArrayIterator(arr) {
+    let index = 0;
+    return {
+        next() {
+            if (index < arr.length) {
+                return { done: false, value: arr[index++] };
+            } else {
+                return { done: true };
+            }
+        }
+    }
+}
+							</code></pre>
+						</section>
+						<section>
+							<h2>Generator</h2>
+							<pre><code>
+function* generatorFunction() {
+    yield 1;
+    yield 2;
+}
+
+let genObj = generatorFunction();
+genObj.next()
+//{ done: false, value: 1 }
+genObj.next()
+//{ done: false, value: 2 }
+genObj.next()
+//{ done: true }
+
+							</code></pre>
+							<a href="http://www.2ality.com/2013/06/iterators-generators.html">2ality: Iterators-generators</a>
+						</section>
+
 						<section>
 							<h2>for in loop</h2>
 							<pre><code>
