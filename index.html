@@ -252,37 +252,6 @@ Object.setPrototypeOf = Object.setPrototypeOf || function (obj, proto) {
 							</code></pre>
 						</section> -->
 					</section>
-					<section>
-						<section>
-							<h1 class="upholdHeader">... prefix</h1>
-						</section>
-						<section>
-							<h2 class="upholdHeader">rest parameters</h2>
-							<pre><code>
-function foo(a, b, c, ...others){
-	return others;
-}
-
-foo(1,2,3,4,5,6);//[4,5,6];
-
-foo(1,2,3);//[];
-foo();//[];
-							</code></pre>
-							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FFunctions_and_function_scope%2Farguments">MDN: arguments</a>
-						</section>
-						<section>
-							<h2>spread</h2>
-							<pre><code>
-let a = [0, 1, 2];
-let [x, ...xs] = a;
-// x = 0
-// xs = [1, 2]				
-[y, ...ys = [0]; // y = 0, ys = []
-[z, ...zs] = []; // z = undefined, zs = []
-							</code></pre>
-							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:spread">Spec: Spread</a>
-						</section>
-					</section>
 
 					<section>
 						<section>
@@ -368,6 +337,39 @@ justLooping();
 							<a href="https://github.com/olov/defs">defs.js</a>
 						</section>
 					</section>
+										<section>
+						<section>
+							<h1 class="upholdHeader">... prefix</h1>
+						</section>
+						<section>
+							<h2 class="upholdHeader">rest parameters</h2>
+							<pre><code>
+function foo(a, b, c, ...others){
+	return others;
+}
+
+foo(1,2,3,4,5,6);//[4,5,6];
+
+foo(1,2,3);//[];
+foo();//[];
+							</code></pre>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FFunctions_and_function_scope%2Farguments">MDN: arguments</a>
+						</section>
+						<section>
+							<h2>spread</h2>
+							<pre><code>
+let a = [0, 1, 2];
+let [x, ...xs] = a;
+// x = 0
+// xs = [1, 2]				
+[y, ...ys = [0]; // y = 0, ys = []
+[z, ...zs] = []; // z = undefined, zs = []
+							</code></pre>
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:spread">Spec: Spread</a>
+						</section>
+					</section>
+	
+
 					<section>
 						<section>
 							<h1 class="upholdHeader">Arrow Function</h1>
