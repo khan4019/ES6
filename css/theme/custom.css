@@ -27,15 +27,11 @@ body {
   text-shadow: none;
 }
 
-.reveal ul li {
-  font-size: 1.75em;
-  line-height: 1.3em;
+.reveal ul li {  
   color: #4A043F;
 }
 
 .reveal ul li {
-  font-size: 1.5em;
-  line-height: 1.3em;
   color: #4A043F;
 }
 

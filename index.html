@@ -78,11 +78,71 @@
 							<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
 						</p>
 					</section>
+					<section>
+						<section>
+							<img src="images/visitingCard.jpg" alt="">
+						</section>
+						<section>
+							<div style="background-image: url('images/stages.jpg'); width: 150px; height:800px; margin-top:-150px;">							
+							</div>							
+							<p>June 1997</p>
+						</section>
+						<section>
+							<div style="background-image: url('images/stages.jpg'); width: 230px; height:800px; margin-top:-150px;">							
+							</div>
+							<p>June 1998</p>							
+						</section>
+						<section>
+							<div style="background-image: url('images/stages.jpg'); width: 350px; height:800px; margin-top:-150px;">							
+							</div>
+							<p>December 1999</p>
+						</section>
+						<section>
+							<div style="background-image: url('images/stages.jpg'); width: 460px; height:800px; margin-top:-150px;">							
+							</div>
+							<p>Abandoned</p>
+						</section>
+						<section>
+							<div style="background-image: url('images/stages.jpg'); width: 590px; height:800px; margin-top:-150px;">							
+							</div>
+							<p>December 2009</p>
+						</section>
+						<section>
+							<div style="background-image: url('images/stages.jpg'); width: 720px; height:800px; margin-top:-150px;">							
+							</div>
+							<p>2014</p>
+						</section>
+						<section>
+							<div style="background-image: url('images/stages.jpg'); width: 720px; height:800px; margin-top:-150px;">							
+							</div>
+							<p>already started ES7?</p>
+						</section>
+					</section>
+					
 <!-- End of Intro -->
 					<section>
-						<h2>When is coming?</h2>						
-						<a href="http://wiki.ecmascript.org/doku.php?id=harmony:specification_drafts">ES6: draft</a>
-					</section>
+						<section>
+							<h1>It is coming?</h1>
+							<h3>Things can and might change</h3>	
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:specification_drafts">ES6: draft</a>
+						</section>	
+						<section>
+							<h2>JavaScript: Language</h2>
+							<h2>ECMAScript: Standard</h2>
+							<h3>Harmony: ES6</h3>
+						</section>
+						<section>
+							<h1>Goals</h1>
+								<ul>
+									<li>Complex Application</li>
+									<li>Libraries</li>
+									<li>Code Generation</li>
+								</ul>	
+								
+							<br/>
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:harmony">Harmony: goals</a>
+						</section>
+					</section>					
 								
 					<section>
 						<section>
@@ -150,11 +210,13 @@ foo(3,'newBee'); //a = 3, b = 'newBee'
 							<h2 class="upholdHeader">Property shorthand</h2>							
 							<pre><code>
 var myShortObj = {x, y};
+
 console.log(myShortObj);
+
 // myShortObj ={x:x, y:y};
 							</code></pre>
 						</section>
-						<section>
+						<!-- <section>
 							<h1 class="upholdHeader">__proto__</h1>
 							<h4>Most likely depricated</h4>
 							<p>Candidate for removal</p>
@@ -168,7 +230,7 @@ Object.setPrototypeOf = Object.setPrototypeOf || function (obj, proto) {
 }
 
 							</code></pre>
-						</section>
+						</section> -->
 					</section>
 					<section>
 						<section>
@@ -501,7 +563,8 @@ var suspects = ["Miss Scarlet", "Colonel Mustard"],
 							<pre><code>
 var obj = {first:'Java', last:'Script'};
 
-let{ fist:f, last:l } = obj;
+let { first:f, last:l } = obj;
+
 console.log( f +' '+ l); //Java Script
 							</code></pre>
 							<ul class="">
@@ -513,11 +576,13 @@ console.log( f +' '+ l); //Java Script
 						<section>
 							<h1 class="upholdHeader">Arrays</h1>
 							<pre><code>
-let[x,y]=['a', 'b'];
+let [ x, y ] = ['a', 'b'];
 
-let[x,y,...rest]=['a', 'b', 'c','d'];
+let [ x, y, ...rest ] = ['a', 'b', 'c','d'];
+
 //x='a', y='b', rest=['c','d']
-[x,y]=[y,x]; //swap
+
+[ x, y] = [y, x]; //swap
 							</code></pre>
 						</section>
 
@@ -525,16 +590,19 @@ let[x,y,...rest]=['a', 'b', 'c','d'];
 							<h2>Refutable(default)</h2>
 							<pre><code>
 //Refutable (default)
+
 var obj = {a:x, b:y} = {a:3}; //fails
 							</code></pre>
 							<h2 class="fragment">Irrefutable</h2>							
 							<pre class="fragment"><code>
 //Irrefutable (default)
+
 var obj = {a:x, ?b:y} = {a:3}; //x=3, y = undefined
 							</code></pre>
 							<h2 class="fragment">Default Value</h2>
 							<pre class="fragment"><code>
 //refutable (default)
+
 var obj = {a:x, b:y=5} = {a:3}; //x=3, y=5
 
 							</code></pre>
@@ -553,6 +621,7 @@ var obj = {a:x, b:y=5} = {a:3}; //x=3, y=5
 						<section>
 							<h1 class="upholdHeader"></h1>
 							<pre><code></code>Symbol</pre>
+							<a href="https://github.com/Nathan-Wall/SymbolsForES5">ES5: Symbol</a>
 						</section>
 						<section>
 							<h1 class="upholdHeader">Maps</h1>
