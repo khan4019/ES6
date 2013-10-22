@@ -628,8 +628,33 @@ var obj = {a:x, b:y=5} = {a:3}; //x=3, y=5
 								<li>concatenations</li>
 								<li>Automatic linting</li>
 								<li>conditional module loading</li>
-								<li>Use legacy module like AMD, Node.js</li>
 							</ul>
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:modules">harmony: Module</a>
+						</section>
+						<section>
+							<h3>Declare Inline</h3>
+							<pre><code>
+module "foo" {
+    export let x = 42;
+}
+							</code></pre>
+							<h3 class="fragment">External module load</h3>
+							<pre class="fragment"><code>
+import { y } from "foo";
+							</code></pre>
+							<h3></h3>
+							<pre class="fragment"><code>
+//If a module defines a default export
+//then import that default export by omitting the curly braces
+
+module "foo" {
+    export default function() { console.log("hello!") }
+}
+
+import foo from "foo";
+foo(); // hello!
+							</code></pre>
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:modules">harmony: Module</a>
 						</section>
 					</section>
 					<section>
