@@ -155,13 +155,16 @@
  {
    a = typeof a !== 'undefined' ? a : 42;
    b = typeof b !== 'undefined' ? b : 'default_b';
+
    console.log('a = '+a);
    console.log('b = '+b);
  }									
 							</code></pre>
 							<pre class="fragment"><code>
-foo(); //a = 42, b = 'bdeafult_b'
-foo(3); //a = 3, b = 'bdeafult_b'
+foo(); //a = 42, b = 'deafult_b'
+
+foo(3); //a = 3, b = 'deafult_b'
+
 foo(3,'newBee'); //a = 3, b = 'newBee'
 							</code></pre>
 						</section>
@@ -611,18 +614,78 @@ var obj = {a:x, b:y=5} = {a:3}; //x=3, y=5
 					<section>
 						<section>
 							<h1 class="upholdHeader">Module</h1>
+							<h4>similar to Node.js module</h4>
+							<ul>
+								<li>Rename imports</li>
+								<li>concatenations</li>
+								<li>Automatic linting</li>
+								<li>conditional module loading</li>
+								<li>Use legacy module like AMD, Node.js</li>
+							</ul>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h1 class="upholdHeader">Symbol</h1>
+							<pre><code>
+let sym = Symbol();
+
+console.log(typeof sym); // symbol
+							</code></pre>
+							<h3>Each Symbol is unique</h3>
+							<a href="https://github.com/Nathan-Wall/SymbolsForES5">ES5: Symbol</a>
+						</section>
+						<section>
+							<h2>Symbol for Enum</h2>
+							<pre><code>
+let red = Symbol();
+let green = Symbol();
+let blue = Symbol();
+function handleColor(color) {
+	switch(color) {
+		case red:
+		...
+		case green:
+		...
+		case blue:
+		...
+	}
+}								
+							</code></pre>
+							<a href="">Copied from slides of Axel Rauschmayer</a>
+						</section>
+						<section>
+							<h2>Symbol as Property Key</h2>
+							<pre><code>
+let specialMethod = Symbol();
+let obj = {
+	// computed property key
+		[specialMethod]: function (arg) {
+		...
+	}
+};
+	obj[specialMethod](123);
+	Shorter – method definition syntax:
+	let obj = {
+		[specialMethod](arg) {
+		...
+	}
+};								
+							</code></pre>
+							<a href="">Copied from slides of Axel Rauschmayer</a>
 						</section>
 					</section>
 					<section>
 						<section>
 							<h1 class="upholdHeader">Template</h1>
-							<pre><code></code></pre>
+							<pre><code>
+templateHandler 'Hello ${first} ${last}!'
+
+templateHandler(['Hello ', ' ', '!'], first, last)
+							</code></pre>
+							<h3>Google it</h3>
 						</section>
-						<section>
-							<h1 class="upholdHeader"></h1>
-							<pre><code></code>Symbol</pre>
-							<a href="https://github.com/Nathan-Wall/SymbolsForES5">ES5: Symbol</a>
-						</section>
+
 						<section>
 							<h1 class="upholdHeader">Maps</h1>
 							<p class="fragment">Data structure mapping from arbitrary values to arbitrary values
