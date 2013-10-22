@@ -255,7 +255,7 @@ Object.setPrototypeOf = Object.setPrototypeOf || function (obj, proto) {
 
 					<section>
 						<section>
-							<h1>Function Scrope</h1>
+							<h1>Function Scope</h1>
 						</section>
 						<section>
 							<h2 class="upholdHeader">JS Function Scope</h2>
@@ -289,14 +289,7 @@ function justLooping() {
 }
 justLooping();
 							</code></pre>
-							<pre class="fragment"><code>
-function justLooping() {
-  for (var i = 0; i < 5; i++) {
-     console.log('for nothing');
- } 
-}
-justLooping();
-							</code></pre>							
+							
 						</section>
 						<section>
 							<h2 class="upholdHeader">let is the solution</h2>
@@ -324,13 +317,13 @@ justLooping();
 						</section>
 						<section>
 							<h1 class="upholdHeader">const</h1>
-							<h2 class="fragment">Initialized once, can never be modified</h2>
-							<ul>
+							<h2>Initialized once, can never be modified</h2>
+							<!-- <ul>
 								<li>scope of constant: is it global</li>
 								<li>Can function be const?</li>
 								<li>Can object be const?</li>
 								<li>any other issues</li>
-							</ul>
+							</ul> -->
 						</section>
 						<section>
 							<h1>defs.js</h1>
