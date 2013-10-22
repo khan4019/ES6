@@ -210,7 +210,9 @@ foo(3,'newBee'); //a = 3, b = 'newBee'
 							<h2 class="upholdHeader">Property shorthand</h2>							
 							<pre><code>
 var myShortObj = {x, y};
+
 console.log(myShortObj);
+
 // myShortObj ={x:x, y:y};
 							</code></pre>
 						</section>
@@ -561,7 +563,8 @@ var suspects = ["Miss Scarlet", "Colonel Mustard"],
 							<pre><code>
 var obj = {first:'Java', last:'Script'};
 
-let{ fist:f, last:l } = obj;
+let { first:f, last:l } = obj;
+
 console.log( f +' '+ l); //Java Script
 							</code></pre>
 							<ul class="">
@@ -573,11 +576,13 @@ console.log( f +' '+ l); //Java Script
 						<section>
 							<h1 class="upholdHeader">Arrays</h1>
 							<pre><code>
-let[x,y]=['a', 'b'];
+let [ x, y ] = ['a', 'b'];
 
-let[x,y,...rest]=['a', 'b', 'c','d'];
+let [ x, y, ...rest ] = ['a', 'b', 'c','d'];
+
 //x='a', y='b', rest=['c','d']
-[x,y]=[y,x]; //swap
+
+[ x, y] = [y, x]; //swap
 							</code></pre>
 						</section>
 
@@ -585,16 +590,19 @@ let[x,y,...rest]=['a', 'b', 'c','d'];
 							<h2>Refutable(default)</h2>
 							<pre><code>
 //Refutable (default)
+
 var obj = {a:x, b:y} = {a:3}; //fails
 							</code></pre>
 							<h2 class="fragment">Irrefutable</h2>							
 							<pre class="fragment"><code>
 //Irrefutable (default)
+
 var obj = {a:x, ?b:y} = {a:3}; //x=3, y = undefined
 							</code></pre>
 							<h2 class="fragment">Default Value</h2>
 							<pre class="fragment"><code>
 //refutable (default)
+
 var obj = {a:x, b:y=5} = {a:3}; //x=3, y=5
 
 							</code></pre>
