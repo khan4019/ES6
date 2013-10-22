@@ -448,6 +448,8 @@ Friend.prototype.toString = function(){
 	return '('+this.name+':'+this.city+')';
 }	
 							</code></pre>
+							<br/>
+							<br/>
 							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:classes">spec: Class</a>
 							<br/>
 							<a href="http://h3manth.com/content/classes-javascript-es6">Classes in ES6</a>
@@ -629,6 +631,7 @@ var obj = {a:x, b:y=5} = {a:3}; //x=3, y=5
 								<li>Automatic linting</li>
 								<li>conditional module loading</li>
 							</ul>
+							<br/>
 							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:modules">harmony: Module</a>
 						</section>
 						<section>
@@ -677,11 +680,11 @@ let blue = Symbol();
 function handleColor(color) {
 	switch(color) {
 		case red:
-		...
+			...
 		case green:
-		...
+			...
 		case blue:
-		...
+			...
 	}
 }								
 							</code></pre>
@@ -694,15 +697,15 @@ let specialMethod = Symbol();
 let obj = {
 	// computed property key
 		[specialMethod]: function (arg) {
-		...
+			...
 	}
 };
 	obj[specialMethod](123);
 	Shorter – method definition syntax:
-	let obj = {
-		[specialMethod](arg) {
-		...
-	}
+		let obj = {
+			[specialMethod](arg) {
+				...
+		}
 };								
 							</code></pre>
 							<a href="">Copied from slides of Axel Rauschmayer</a>
@@ -716,7 +719,7 @@ templateHandler 'Hello ${first} ${last}!'
 
 templateHandler(['Hello ', ' ', '!'], first, last)
 							</code></pre>
-							<h3>Google it</h3>
+							<h3> <a href="http://wiki.ecmascript.org/doku.php?id=harmony:quasis">Harmony template</a> </h3>
 						</section>
 
 						<section>
@@ -767,6 +770,7 @@ console.log(set2.values()); // 1,2,3
 								<li>contains</li>
 								<li>toArray</li>								
 							</ul>
+							<br/>
 							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:string_extras">String Extras</a>
 						</section>
 						<section>
@@ -797,6 +801,7 @@ console.log(set2.values()); // 1,2,3
 								<li>July 2014: editorially complete</li>
 								<li>December 2014: Ecma Approval</li>
 							</ul>
+							<br/>
 							<a href="https://github.com/google/traceur-compiler">Traceur by Google</a>
 							<br/>
 							<a href="https://github.com/paulmillr/es6-shim/">es6-shim</a>
@@ -826,9 +831,9 @@ console.log(set2.values()); // 1,2,3
 					</section>
 					<section>
 						<h1>Thank you</h1>					
-						<br/><br/><br/>
+						<br/>
 						<h3> <a href="goo.gl/pnvqOl">goo.gl/pnvqOl</a> </h3>
-						<br/><br/><br/>
+						<br/><br/>
 						<p>
 							<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
 						</p>
