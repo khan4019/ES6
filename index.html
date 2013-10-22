@@ -618,11 +618,7 @@ var obj = {a:x, b:y=5} = {a:3}; //x=3, y=5
 					</section>
 					<section>
 						<section>
-							<h1 class="upholdHeader">Template</h1>
-							<pre><code></code></pre>
-						</section>
-						<section>
-							<h1 class="upholdHeader"></h1>
+							<h1 class="upholdHeader">Symbol</h1>
 							<pre><code>
 let sym = Symbol();
 
@@ -650,6 +646,33 @@ function handleColor(color) {
 							</code></pre>
 							<a href="">Copied from slides of Axel Rauschmayer</a>
 						</section>
+						<section>
+							<h2>Symbol as Property Key</h2>
+							<pre><code>
+let specialMethod = Symbol();
+let obj = {
+	// computed property key
+		[specialMethod]: function (arg) {
+		...
+	}
+};
+	obj[specialMethod](123);
+	Shorter – method definition syntax:
+	let obj = {
+		[specialMethod](arg) {
+		...
+	}
+};								
+							</code></pre>
+							<a href="">Copied from slides of Axel Rauschmayer</a>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h1 class="upholdHeader">Template</h1>
+							<pre><code></code></pre>
+						</section>
+
 						<section>
 							<h1 class="upholdHeader">Maps</h1>
 							<p class="fragment">Data structure mapping from arbitrary values to arbitrary values
