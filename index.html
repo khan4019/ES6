@@ -74,12 +74,12 @@
 
 					<section>
 						<section>
-							<h1>Whats New in ES6</h1>					
+							<h1>10 ES6 things I  use Everyday</h1>					
 							<br/><br/>
 							<h3> <a href="http://bit.ly/1cVf9bJ">http://bit.ly/1cVf9bJ</a> </h3>
 							<br/><br/>
 							<p>
-								<a href="http://jhankarmahbub.com">MD Khan</a> / <a href="http://twitter.com/mdkhan005">@mdkhan005</a>
+								<a href="http://thatjsdude.com">That JS Dude</a> / <a href="http://twitter.com/thatJSDude">@thatjsdude</a>
 							</p>
 						</section>
 						<section>
@@ -165,6 +165,180 @@
 							<h3 class="fragment" style="color:brown;">Steal from Libraries</h3>
 							<h3 class="fragment" style="color:brown;">Make you Lazy</h3>
 							<h3 class="fragment" style="color:brown;">Reduce your Paycheck</h3>							
+						</section>
+					</section>
+					<section>
+						<section>
+							<h1>... </h1>
+						</section>
+						<section>
+							<pre><code>
+//es5
+var grades = [5, 10, 50];
+Math.max(grades);    // Error: NaN
+Math.max.apply(Math, grades);    // 50
+							</code></pre>
+							<pre class="fragment"><code>
+//es6
+var grades = [5, 10, 50];
+Math.max(...grades);    // 50
+							</code></pre>
+						</section>
+						<section>
+							<h2 class="upholdHeader">rest parameters</h2>
+							<pre><code>
+function foo(a, b, c, ...others){
+	return others;
+}
+
+foo(1,2,3,4,5,6);//[4,5,6];
+
+foo(1,2,3);//[];
+foo();//[];
+							</code></pre>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FFunctions_and_function_scope%2Farguments">MDN: arguments</a>
+						</section>
+						<section>
+							<h2>spread</h2>
+							<pre><code>
+let a = [0, 1, 2];
+let [x, ...xs] = a;
+// x = 0
+// xs = [1, 2]				
+[y, ...ys = [0]; // y = 0, ys = []
+[z, ...zs] = []; // z = undefined, zs = []
+							</code></pre>
+							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:spread">Spec: Spread</a>
+						</section>
+					</section>
+					<section>
+						<section>
+							<h1>var</h1>
+							<h3> used to come into my dream</h3>
+						</section>
+						<section>
+							<pre><code>
+var greetings = 'friend';
+console.log(greetings);
+							</code></pre>
+							<pre class="fragment"><code>
+var familyAround = false;
+
+if (nonOneAround !== true) {
+  var greeting= 'honey' ;
+	
+}
+							</code></pre>
+						</section>
+						<section>
+<pre><code class="hljs javascript">
+var greetings = 'friend;
+console.log('before', greetVar)
+
+var familyAround = false;
+
+if (nonOneAround !== true) {
+  var greeting= 'honey' ;
+	
+}
+
+console.log('after', greetings);
+</code></pre>
+						</section>
+						<section>
+							<h2>Hoisting is bad for encapsulation</h2>
+							<pre><code>
+function justLooping() {
+  console.log(i); //i=undefined 
+  for (var i = 0; i < 5; i++) {
+     console.log('for nothing');
+ }
+ console.log(i); //i=5
+}
+justLooping();
+							</code></pre>
+							
+						</section>
+						<section>
+							<pre><code>
+var messages = ["Meow!", "I'm a talking cat!", "Callbacks are fun!"];
+
+for (var i = 0; i < messages.length; i++) {
+    console.log(messages[i]);
+  
+}
+							</code></pre>
+							<h4 class="fragment">Move to city can't receive all the times</h4>
+<pre  class="fragment"><code>
+var messages = ["Meow!", "I'm a talking cat!", "Callbacks are fun!"];
+
+for (var i = 0; i < messages.length; i++) {
+	setTimeout(function(){ 
+   		console.log(messages[i]);
+    }, 2000)
+  
+}
+</code></pre>
+						<br>
+						<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let">Add more</a>
+						</section>						
+						<section>
+							<h3>Now i graduated and moved to chicago</h3>
+							<h1 class="fragment">let</h1>												
+						</section>
+						<section>
+							<h2>Block Scope</h2>
+							<pre class="fragment"><code>
+{
+  // new scope block
+}
+
+if (true) {
+  // new scope block
+}
+
+while (true) {
+  // new scope block
+}
+
+function () {
+  // new block scope
+}
+							</code></pre>
+						</section>
+						<section>
+							<h2 class="upholdHeader">let is the solution</h2>
+							<pre><code>
+function justLooping() {
+//i not here. Reference Error
+  for (let i = 0; i < 5; i++) {
+     console.log('for nothing');
+ } 
+ //i not here. Reference Error
+}
+justLooping();
+							</code></pre>
+							<pre class="fragment"><code>
+function justLooping() {
+//i not here. Reference Error
+  for (let i = 0; i < 5; i++) {
+     var mySquare = i*i;
+ } 
+ //i not here. Reference Error
+ console.log(mySquare); // ReferenceError: 
+}
+justLooping();									
+								</code></pre>
+						</section>
+						<section>
+							<h1 class="upholdHeader">const</h1>
+							<h2>Initialized once, can never be modified</h2>
+							<!-- <ul>
+								<li>scope of constant: is it global</li>
+								<li>Can function be const?</li>
+								<li>Can object be const?</li>
+								<li>any other issues</li>
+							</ul> -->
 						</section>
 					</section>					
 								
@@ -257,117 +431,6 @@ Object.setPrototypeOf = Object.setPrototypeOf || function (obj, proto) {
 							</code></pre>
 						</section> -->
 					</section>
-
-					<section>
-						<section>
-							<h1>Function Scope</h1>
-						</section>
-						<section>
-							<h2 class="upholdHeader">JS Function Scope</h2>
-							<pre><code>
-function justLooping() {
-  for (var i = 0; i < 5; i++) {
-     console.log('for nothing');
- } 
-}
-justLooping();
-							</code></pre>
-							<pre class="fragment"><code>
-function justLooping() {
-  for (var i = 0; i < 5; i++) {
-     console.log('for nothing');
- }
- console.log(i); //i=5
-}
-justLooping();
-							</code></pre>
-						</section>
-						<section>
-							<h2>Hoisting is bad for encapsulation</h2>
-							<pre><code>
-function justLooping() {
-  console.log(i); //i=undefined 
-  for (var i = 0; i < 5; i++) {
-     console.log('for nothing');
- }
- console.log(i); //i=5
-}
-justLooping();
-							</code></pre>
-							
-						</section>
-						<section>
-							<h2 class="upholdHeader">let is the solution</h2>
-							<pre><code>
-function justLooping() {
-//i not here. Reference Error
-  for (let i = 0; i < 5; i++) {
-     console.log('for nothing');
- } 
- //i not here. Reference Error
-}
-justLooping();
-							</code></pre>
-							<pre class="fragment"><code>
-function justLooping() {
-//i not here. Reference Error
-  for (let i = 0; i < 5; i++) {
-     var mySquare = i*i;
- } 
- //i not here. Reference Error
- console.log(mySquare); // ReferenceError: 
-}
-justLooping();									
-								</code></pre>
-						</section>
-						<section>
-							<h1 class="upholdHeader">const</h1>
-							<h2>Initialized once, can never be modified</h2>
-							<!-- <ul>
-								<li>scope of constant: is it global</li>
-								<li>Can function be const?</li>
-								<li>Can object be const?</li>
-								<li>any other issues</li>
-							</ul> -->
-						</section>
-						<section>
-							<h1>defs.js</h1>
-							<a href="https://github.com/olov/defs">defs.js</a>
-						</section>
-					</section>
-										<section>
-						<section>
-							<h1 class="upholdHeader">... prefix</h1>
-						</section>
-						<section>
-							<h2 class="upholdHeader">rest parameters</h2>
-							<pre><code>
-function foo(a, b, c, ...others){
-	return others;
-}
-
-foo(1,2,3,4,5,6);//[4,5,6];
-
-foo(1,2,3);//[];
-foo();//[];
-							</code></pre>
-							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FFunctions_and_function_scope%2Farguments">MDN: arguments</a>
-						</section>
-						<section>
-							<h2>spread</h2>
-							<pre><code>
-let a = [0, 1, 2];
-let [x, ...xs] = a;
-// x = 0
-// xs = [1, 2]				
-[y, ...ys = [0]; // y = 0, ys = []
-[z, ...zs] = []; // z = undefined, zs = []
-							</code></pre>
-							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:spread">Spec: Spread</a>
-						</section>
-					</section>
-	
-
 					<section>
 						<section>
 							<h1 class="upholdHeader">Arrow Function</h1>
