@@ -213,6 +213,22 @@ goodGuys.unshift(...badGuys);
 						</section>
 						<section>
 							<pre><code>
+let array1 = ['one', 'two']
+let array2 = ['three', 'four']
+let array3 = ['five', 'six']
+
+// ES5 way
+let combinedArray = array1.concat(array2).concat(array3)
+console.log(combinedArray) // ['one', 'two', 'three', 'four', 'five', 'six']
+							</code></pre>
+							<pre class="fragment"><code>
+// ES6 way
+let combinedArray = [...array1, ...array2, ...array3]
+console.log(combinedArray) // ['one', 'two', 'three', 'four', 'five', 'six']
+							</code></pre>
+						</section>
+						<section>
+							<pre><code>
 var arr1 = ['two', 'three'];
 var arr2 = ['one', ...arr1, 'four', 'five'];
 
@@ -252,7 +268,26 @@ console.log(z); // { a: 3, b: 4 }
 							</code></pre>
 						</section>
 						<section>
-							<h2>spread</h2>
+							<h2>Destructuring</h2>
+<pre><code>
+const Zell = {
+  firstName: 'Zell',
+  lastName: 'Liew'
+}
+
+let firstName = Zell.firstName // Zell
+let lastName = Zell.lastName // Liew
+</code></pre>
+
+<pre class="fragment"><code>
+let { firstName, lastName } = Zell
+
+console.log(firstName) // Zell
+console.log(lastName) // Liew
+</code></pre>
+						</section>
+						<section>
+							<h2>destructuring</h2>
 							<pre><code>
 let a = [0, 1, 2];
 let [x, ...xs] = a;
@@ -266,6 +301,22 @@ let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 };
 console.log(x); // 1
 console.log(y); // 2
 console.log(z); // { a: 3, b: 4 }
+							</code></pre>
+						</section>
+						<section>
+							<h2>Swap variable</h2>
+							<pre><code>
+let a = 2
+let b = 3
+let temp
+
+// swapping
+temp = a // temp is now 2
+a = b // a is now 3
+b = temp // b is now 2
+							</code></pre>
+							<pre class="fragment"><code>
+[a, b] = [b, a]
 							</code></pre>
 						</section>
 						<section>
@@ -315,6 +366,24 @@ if (nonOneAround !== true) {
 
 console.log('after', greetings);
 </code></pre>
+						</section>
+						<section>
+							<h2>IIFE</h2>
+							<pre><code>
+(function () {
+    var letter = 'you are my sweety sweety bunny bunny';
+}());
+
+console.log(letter); // Reference Error
+							</code></pre>
+						</section>
+						<section>
+//es6
+{
+    let sms = 'Meow Mix';
+};
+
+console.log(sms); // Reference Error
 						</section>
 						<section>
 							<h2>Hoisting is bad for encapsulation</h2>
@@ -412,7 +481,134 @@ justLooping();
 							</ul> -->
 						</section>
 					</section>					
-								
+					<section>
+						<section>
+							<h1 class="upholdHeader">Arrow Function</h1>
+							<h1>=></h1>
+						</section>
+						<section>							
+							<pre><code>
+var square = function(x) {
+    return x * x;
+};
+
+							</code></pre>
+							<pre class="fragment"><code>
+var square = x => x*x;
+							</code></pre>
+							<pre class="fragment"><code>
+var numbers = [1, 2, 3];
+var squares = numbers.map(x => x*x);
+// [2, 3, 9]
+
+							</code></pre>							
+						</section>
+						<section>
+							<h4>Arrow functions don't just make the code shorter</h4>
+							<h5>closely related to this binding behavior</h5>
+							<pre><code>
+//es5
+function Person() {
+    var self = this;
+    self.age = 0;
+    setInterval(function growUp() {
+        self.age++;
+    }, 1000);
+}
+							</code></pre>
+							<pre class="fragment"><code>
+//arrow functions capture the this value of the nearest enclosing context.
+function Person(){
+  this.age = 0;
+
+  setInterval(() => {
+    this.age++; // |this| properly refers to the person object
+  }, 1000);
+}
+
+var p = new Person();
+							</code></pre>
+							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_binding_of_this">lexical this</a>
+						</section>
+						<section>
+							<h2 class="upholdHeader">multi line in the expression</h2>
+							<pre><code>
+//change this for beter understanding
+let fives = [];
+nats.forEach(v => { if (v % 5 === 0) fives.push(v); });
+							</code></pre>
+
+						</section>
+						<section>
+							<h2>return object</h2>
+							<pre><code>
+var myObj = id => ({Id: id});
+							</code></pre>
+							<pre class="fragment"><code>
+var getTempUser = function(id) {
+
+    return {
+        id: id,
+        name: "Temp"
+    };
+};							
+
+//ES 6
+var getTempUser = id => ({ id: id, name: "Temp" });
+							</code></pre>
+							<a href="http://www.nczonline.net/blog/2013/09/10/understanding-ecmascript-6-arrow-functions/">Nicholas Zakas: ES6 Arrow Function</a>
+						</section>
+						<section>
+							<h2>What the heck is this!!</h2>
+							<pre><code>
+function MyClickHandler {
+	var that = this;
+	//var self = this;
+
+	var elem = document.getElementById('myDiv');
+	
+	elem.addEventListener('click', function () {
+		  console.log('CLICK');
+		  that.handleClick();
+	});
+}
+
+MyClickHandler.prototype.handleClick = function () { ... };
+							</code></pre>
+						</section>
+						<section>
+							<h2 class="upholdHeader">lexical this, no more that = this</h2>
+							<pre><code>
+//from Harmony: make it better
+// ''=>'' has only lexical ''this'', no dynamic ''this''
+const obj = {
+  method: function () {
+    return () => this;
+  }
+};
+							</code></pre>
+						</section>
+						<section>
+							<pre><code>
+let o = {
+  // Old way
+  oldDoSthAfterThree: function () {
+    let that = this
+    setTimeout(function () {
+      console.log(this) // Window
+      console.log(that) // o
+    })
+  },
+  // Arrow function way
+  doSthAfterThree: function () {
+    setTimeout(() => {
+      console.log(this) // o
+    }, 3000)
+  }
+}
+							</code></pre>
+						</section>						
+					</section>
 					<section>
 						<section>
 							<h1 class="upholdHeader">Defaults</h1>
@@ -479,123 +675,45 @@ foo(3,'newBee'); //a = 3, b = 'newBee'
 							<h1 class="upholdHeader">Object</h1>
 							<h2 class="upholdHeader">Property shorthand</h2>							
 							<pre><code>
+var x = 3;
+var obj = {x};
+console.log(obj); // {x: 3}
+							</code></pre>
+							<pre class="fragment"><code>
 var myShortObj = {x, y};
-
 console.log(myShortObj);
 
 // myShortObj ={x:x, y:y};
 							</code></pre>
-						</section>
-						<!-- <section>
-							<h1 class="upholdHeader">__proto__</h1>
-							<h4>Most likely depricated</h4>
-							<p>Candidate for removal</p>
+							<pre class="fragment"><code>
+let myVar = 'foo';
+let otherVar = 2;
 
+// output:
+// {myVar: "foo", otherVar: 2}
+console.log({myVar, otherVar});
+							</code></pre>
+						</section>
+						<section>
+							<h2>Method shorthand</h2>
 							<pre><code>
-Object.setPrototypeOf(object, prototype)
-//or learn about polyfill
-Object.setPrototypeOf = Object.setPrototypeOf || function (obj, proto) {
-  obj.__proto__ = proto;
-  return obj; 
+const anObject = {
+  // ES6 way
+  aShorthandMethod (arg1, arg2) {},
+
+  // ES5 way
+  aLonghandMethod: function (arg1, arg2) {},
 }
 
 							</code></pre>
-						</section> -->
-					</section>
-					<section>
-						<section>
-							<h1 class="upholdHeader">Arrow Function</h1>
-							<h1>=></h1>
-						</section>
-						<section>							
-							<pre><code>
-var square = function(a) {
-    return a * b;
-};
-
-							</code></pre>
+							<h2>warning</h2>
 							<pre class="fragment"><code>
-var square = a => a*a;
-							</code></pre>
-							<pre class="fragment"><code>
-var add = function(a, b) {
-    return a + b;
-};
-
-//with ES6
-var add = (a, b) => a+b;
-							</code></pre>
-							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:arrow_function_syntax">Harmony: Arrow Function</a>
-						</section>
-						<section>
-							<pre><code>
-var sum = function() {
-    return 1 + 2;
-};
-
-//ES 6
-var sum = () => 1 + 2;
-							</code></pre>
-						</section>
-						<section>
-							<h2 class="upholdHeader">multi line in the expression</h2>
-							<pre><code>
-//change this for beter understanding
-let fives = [];
-nats.forEach(v => { if (v % 5 === 0) fives.push(v); });
-							</code></pre>
-
-						</section>
-						<section>
-							<h2>return object</h2>
-							<pre><code>
-var myObj = id => ({Id: id});
-							</code></pre>
-							<pre class="fragment"><code>
-var getTempUser = function(id) {
-
-    return {
-        id: id,
-        name: "Temp"
-    };
-};							
-
-//ES 6
-var getTempUser = id => ({ id: id, name: "Temp" });
-							</code></pre>
-							<a href="http://www.nczonline.net/blog/2013/09/10/understanding-ecmascript-6-arrow-functions/">Nicholas Zakas: ES6 Arrow Function</a>
-						</section>
-						<section>
-							<h2>What the heck is this!!</h2>
-							<pre><code>
-function MyClickHandler {
-	var that = this;
-	//var self = this;
-
-	var elem = document.getElementById('myDiv');
-	
-	elem.addEventListener('click', function () {
-		  console.log('CLICK');
-		  that.handleClick();
-	});
+// You’ll break the this context
+const dontDoThis = {
+  arrowFunction: () => {}
 }
-
-MyClickHandler.prototype.handleClick = function () { ... };
 							</code></pre>
 						</section>
-						<section>
-							<h2 class="upholdHeader">lexical this, no more that = this</h2>
-							<pre><code>
-//from Harmony: make it better
-// ''=>'' has only lexical ''this'', no dynamic ''this''
-const obj = {
-  method: function () {
-    return () => this;
-  }
-};
-							</code></pre>
-						</section>
-						
 					</section>
 					<section>
 						<section>
@@ -670,6 +788,14 @@ class DevFriend extends Friend {
 
 							</code></pre>
 						
+						</section>
+						<section>
+							<ul>
+								<li>getter setter</li>
+								<li>super</li>
+								<li></li>
+							</ul>
+							<a href="https://github.com/DrkSephy/es6-cheatsheet">few from here</a>
 						</section>
 						
 						<section>
@@ -823,7 +949,7 @@ module "foo" {
 import foo from "foo";
 foo(); // hello!
 							</code></pre>
-							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:modules">harmony: Module</a>
+							<a href="https://github.com/DrkSephy/es6-cheatsheet#modules">Modules</a>
 						</section>
 					</section>
 					<section>
@@ -1014,20 +1140,20 @@ for (p of planets) {
   console.log(p); // Mercury, Venus, Earth, Mars
 }
 							</code></pre>
+							<pre><code>
+const arr = ['a', 'b', 'c'];
+for (const [index, elem] of arr.entries()) {
+    console.log(`index = ${index}, elem = ${elem}`);
+}
+							</code></pre>
 							<h3 class="fragment">I can do it in simple for loop</h3>
 						</section>
 						<section>
 							<h3 class="upholdHeader">Iterator</h3>
 							<pre><code>
-for (word of ["one", "two", "three"]) {
-    alert(word);
-}
- 
-var s = Set([1, 3, 4, 2, 3, 2, 17, 17, 1, 17]);
-for (var v of s) {
-    alert(v);
-}
- 
+
+							</code></pre>
+							<pre><code>
 // Iterating over a Map produces key-value pairs: arrays of length 2.
 var m = new Map;
 m.set("one", 1);
@@ -1039,10 +1165,19 @@ for (var [name, value] of m) {
 							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:iterators">Harmony:Iterator</a>
 						</section>	
 					</section>
-					
 					<section>
 						<section>
 							<h1 class="upholdHeader">Utilities</h1>
+						</section>
+						<section>
+							<ul>
+								<li>repeat</li>
+								<li>includes</li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+							<a href="https://github.com/DrkSephy/es6-cheatsheet">add fromt his</a>
 						</section>
 						<section>
 							<h1 class="upholdHeader">String</h1>
@@ -1108,9 +1243,9 @@ for (var [name, value] of m) {
 					</section>
 					<section>
 						<h2>Few Resources</h2>
-						<a href="http://www.2ality.com/search/label/esnext">2ality of Alex</a>
+						<a href="https://zellwk.com/blog/es6/#template-literals">commonly used ES6 features</a>
 						<br/>
-						<a href="https://brendaneich.com/?s=ecmascript">bRENDAN eICH</a>
+						<a href="https://github.com/lukehoban/es6features">ES6 features</a>
 						<br/>
 						<a href="http://net.tutsplus.com/articles/news/ecmascript-6-today">Net tuts</a>
 						<br/>
