@@ -183,9 +183,57 @@ Math.max.apply(Math, grades);    // 50
 var grades = [5, 10, 50];
 Math.max(...grades);    // 50
 							</code></pre>
+							<pre class="fragment"><code>
+//string to array
+const str = "hello";
+const strChar = [...str];
+console.log(strChar);
+//
+							</code></pre>
+						</section>
+						<section>
+							<h2>combine array</h2>
+							<pre><code>
+var goodGuys = [1, 2, 3];
+var badGuys = [4, 5, 6];
+
+goodGuys.concat(badGuys);
+// [1, 2, 3, 4 , 5, 6]
+// creates new array 
+							</code></pre>
+							<pre class="fragment"><code>
+goodGuys.push.apply(goodGuys, badGuys);
+							</code></pre>
+							<pre class="fragment"><code>
+goodGuys.push(...badGuys);
+							</code></pre>
+							<pre class="fragment"><code>
+goodGuys.unshift(...badGuys);
+							</code></pre>
+						</section>
+						<section>
+							<pre><code>
+var arr1 = ['two', 'three'];
+var arr2 = ['one', ...arr1, 'four', 'five'];
+
+// ["one", "two", "three", "four", "five"]
+							</code></pre>
+							<pre class="fragment"><code>
+var arr = [1,2,3];
+var arr2 = [...arr]; // like arr.slice()
+arr2.push(4)
+							</code></pre>
+							<p>Why can't i make arr2 = arr. Due to reference</p>
+							<p>Remember: objects within the array are still by reference, so not everything gets "copied", per se.</p>
 						</section>
 						<section>
 							<h2 class="upholdHeader">rest parameters</h2>
+							<pre><code>
+//argument to array
+var myFn = function(...args) {
+// ...
+}
+							</code></pre>
 							<pre><code>
 function foo(a, b, c, ...others){
 	return others;
@@ -196,7 +244,12 @@ foo(1,2,3,4,5,6);//[4,5,6];
 foo(1,2,3);//[];
 foo();//[];
 							</code></pre>
-							<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FFunctions_and_function_scope%2Farguments">MDN: arguments</a>
+							<pre class="fragment"><code>
+let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 };
+console.log(x); // 1
+console.log(y); // 2
+console.log(z); // { a: 3, b: 4 }
+							</code></pre>
 						</section>
 						<section>
 							<h2>spread</h2>
@@ -208,7 +261,25 @@ let [x, ...xs] = a;
 [y, ...ys = [0]; // y = 0, ys = []
 [z, ...zs] = []; // z = undefined, zs = []
 							</code></pre>
-							<a href="http://wiki.ecmascript.org/doku.php?id=harmony:spread">Spec: Spread</a>
+							<pre class="fragment"><code>
+let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 };
+console.log(x); // 1
+console.log(y); // 2
+console.log(z); // { a: 3, b: 4 }
+							</code></pre>
+						</section>
+						<section>
+<pre><code>
+// remove duplicate
+const arr = [7, 3, 1, 3, 3, 7];
+[...new Set(arr)]
+//[ 7, 3, 1 ]
+</code></pre>
+<pre class="fragment"><code>
+//convert iterable to array
+[...new Map().set(true, 'yes').set(false, 'no')]
+//[ [ true, 'yes' ], [ false, 'no' ] ]
+</code></pre>
 						</section>
 					</section>
 					<section>
